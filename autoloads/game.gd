@@ -4,10 +4,15 @@ signal word_completed(word: String)
 signal word_failed()
 signal word_fell_in_fire(word: String)
 signal letter_typed(letter: String, is_valid: bool)
+signal typo_mode_started()
+signal typo_mode_ended()
+
+var typo_mode: bool = false
 
 var words_by_length: Dictionary = {}
 var active_words: Array = []
 var current_typing: String = ""
+var current_score: int = 0
 
 var input_buffer: String = ""
 var max_input_length: int = 10
@@ -15,8 +20,17 @@ var max_input_length: int = 10
 func _ready():
 	load_words()
 
+func start_typo_mode() -> void:
+	typo_mode = true
+	typo_mode_started.emit()
 
-func _input(event):
+func end_typo_mode() -> void:
+	typo_mode = false
+	typo_mode_ended.emit()
+
+func _unhandled_input(event):
+	if typo_mode:
+		return
 	if event is InputEventKey and event.pressed and !event.echo:
 		# Convert the keycode to a character
 		var character = OS.get_keycode_string(event.keycode).to_upper()

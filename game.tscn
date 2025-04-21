@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=42 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://main.gd" id="1_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://c560r2l8m31ek" path="res://assets/Scaffold.png" id="2_7jktm"]
@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://crmbhy50ub6e2" path="res://assets/ding-03.wav" id="9_vef74"]
 [ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="10_hve3p"]
 [ext_resource type="FontFile" uid="uid://c0usj0666vr6v" path="res://assets/F25_Bank_Printer_Bold.ttf" id="11_mfdv2"]
+[ext_resource type="FontFile" uid="uid://qvaoj3f8byk4" path="res://assets/F25_Bank_Printer.ttf" id="13_215e1"]
+[ext_resource type="PackedScene" uid="uid://bhvimsqkbu22t" path="res://scenes/typo_mode/typo_mode.tscn" id="13_lc2xo"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -441,3 +443,16 @@ offset_right = 166.0
 offset_bottom = 165.0
 text = "1234"
 label_settings = SubResource("LabelSettings_j5wjh")
+
+[node name="ToggleTypo" type="Button" parent="GameUI"]
+offset_left = 12.0
+offset_top = 168.0
+offset_right = 356.0
+offset_bottom = 208.0
+theme_override_fonts/font = ExtResource("13_215e1")
+theme_override_font_sizes/font_size = 31
+text = "Toggle Typo Mode"
+
+[node name="TypoMode" parent="." instance=ExtResource("13_lc2xo")]
+z_index = 2
+position = Vector2(575, 322)
