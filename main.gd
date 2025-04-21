@@ -8,7 +8,7 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var failed_sound: AudioStreamPlayer = $Failed
 @onready var completed_sound: AudioStreamPlayer = $Completed
-@onready var current_typing: Label = $GameUI/CurrentTyping
+@onready var current_typing: Label = $CurrentTyping
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _ready() -> void:
 	despawn_area.body_entered.connect(_on_despawn_area_body_entered)
 	score.text = "0"
 	current_typing.text = ""
-	
+
 	Game.word_completed.connect(_on_word_completed)
 	Game.word_failed.connect(_on_word_failed)
 	Game.letter_typed.connect(_on_letter_typed)

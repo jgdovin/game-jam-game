@@ -4,7 +4,8 @@ class_name Word
 var word_length: int = 3
 var word_text: String = ""
 
-@onready var label: Label = $Label
+@onready var highlight_label: Label = $HighlightLabel
+@onready var label: Label = $WordLabel
 var collision_shape: CollisionShape2D
 
 var is_on_floor: bool = false
@@ -16,7 +17,9 @@ func _ready() -> void:
 	word_length = rng.randi_range(3, 6)
 	word_text = Game.get_random_word(word_length)
 	Game.add_word_to_active(word_text)
+	Game.letter_typed.connect(_on_letter_typed)
 	label.text = word_text
+	highlight_label.text = ""
 	
 	# Create a new unique collision shape
 	collision_shape = CollisionShape2D.new()
@@ -28,6 +31,14 @@ func _ready() -> void:
 	add_child(collision_shape)
 	
 	body_entered.connect(_on_body_entered)
+
+func _on_letter_typed(_letter: String) -> void:
+	var buffer = Game.input_buffer.to_lower()
+	if word_text.begins_with(buffer):
+		var spaces = " ".repeat(word_text.length() - buffer.length())
+		highlight_label.text = buffer + spaces
+	else:
+		highlight_label.text = ""
 
 func _on_body_entered(_body: Node2D) -> void:
 	is_on_floor = true

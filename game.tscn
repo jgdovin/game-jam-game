@@ -167,12 +167,12 @@ colors = PackedColorArray(0.345098, 0.109804, 0, 1, 1, 0.317647, 0, 1, 1, 0.5333
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
 bg_color = Color(0.219608, 0.219608, 0.219608, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
-font = ExtResource("7_eow3j")
-font_size = 76
-
 [sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
 font = ExtResource("11_mfdv2")
+font_size = 76
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
+font = ExtResource("7_eow3j")
 font_size = 76
 
 [node name="Main" type="Node2D"]
@@ -397,6 +397,14 @@ volume_db = -14.991
 [node name="Completed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_hve3p")
 
+[node name="CurrentTyping" type="Label" parent="."]
+offset_top = 26.0
+offset_right = 1152.0
+offset_bottom = 102.0
+text = "1234"
+label_settings = SubResource("LabelSettings_iotsf")
+horizontal_alignment = 1
+
 [node name="GameUI" type="CanvasLayer" parent="."]
 
 [node name="Score" type="Label" parent="GameUI"]
@@ -406,11 +414,3 @@ offset_right = 166.0
 offset_bottom = 102.0
 text = "1234"
 label_settings = SubResource("LabelSettings_j5wjh")
-
-[node name="CurrentTyping" type="Label" parent="GameUI"]
-offset_top = 26.0
-offset_right = 1152.0
-offset_bottom = 102.0
-text = "1234"
-label_settings = SubResource("LabelSettings_iotsf")
-horizontal_alignment = 1

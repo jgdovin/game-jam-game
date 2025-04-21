@@ -9,8 +9,12 @@ font_size = 46
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vl1uy"]
-blend_mode = 3
+[sub_resource type="LabelSettings" id="LabelSettings_vl1uy"]
+font = ExtResource("2_vl1uy")
+font_size = 46
+font_color = Color(0.0470588, 1, 1, 1)
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Word" type="RigidBody2D"]
 z_index = 1
@@ -19,20 +23,20 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_3q3ku")
 
-[node name="Label" type="Label" parent="."]
+[node name="WordLabel" type="Label" parent="."]
 offset_left = -450.0
 offset_top = -25.0
 offset_right = 450.0
 offset_bottom = 22.0
-text = "An"
+text = "Abcde"
 label_settings = SubResource("LabelSettings_5kvxf")
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-material = SubResource("CanvasItemMaterial_vl1uy")
-offset_left = -34.0
-offset_top = -23.0
-offset_right = -9.0
-offset_bottom = 20.0
-color = Color(0.0352941, 1, 1, 1)
+[node name="HighlightLabel" type="Label" parent="."]
+offset_left = -450.0
+offset_top = -25.0
+offset_right = 450.0
+offset_bottom = 22.0
+text = "Ab   "
+label_settings = SubResource("LabelSettings_vl1uy")
+horizontal_alignment = 1
