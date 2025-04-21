@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=37 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://main.gd" id="1_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://c560r2l8m31ek" path="res://assets/Scaffold.png" id="2_7jktm"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="7_eow3j"]
 [ext_resource type="Texture2D" uid="uid://c3eqox1cl6ydd" path="res://assets/KeyboardFull.png" id="8_j5wjh"]
 [ext_resource type="AudioStream" uid="uid://crmbhy50ub6e2" path="res://assets/ding-03.wav" id="9_vef74"]
+[ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="10_hve3p"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -349,9 +350,10 @@ z_index = 2
 sprite_frames = SubResource("SpriteFrames_j5wjh")
 autoplay = "default"
 
-[node name="Particles" type="CPUParticles2D" parent="."]
+[node name="Particles" type="CPUParticles2D" parent="FirePitBase"]
 z_index = 2
-position = Vector2(96, 549)
+position = Vector2(1.33333, -0.666672)
+scale = Vector2(0.333333, 0.333333)
 emitting = false
 amount = 50
 one_shot = true
@@ -391,6 +393,9 @@ layout_mode = 2
 texture = ExtResource("8_j5wjh")
 stretch_mode = 4
 
-[node name="Ding" type="AudioStreamPlayer" parent="."]
+[node name="Failed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_vef74")
 volume_db = -14.991
+
+[node name="Completed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_hve3p")

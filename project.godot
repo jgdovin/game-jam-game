@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 Game="*res://autoloads/game.gd"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

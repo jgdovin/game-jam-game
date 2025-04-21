@@ -3,10 +3,11 @@ extends Node2D
 @onready var word_scene: PackedScene = preload("res://word.tscn")
 @onready var word_spawn_point: Node2D = $WordSpawnPoint
 @onready var despawn_area: Area2D = $FirePitBase/DespawnArea
-@onready var particles: CPUParticles2D = $Particles
+@onready var particles: CPUParticles2D = $FirePitBase/Particles
 @onready var score: Label = $Score
 @onready var timer: Timer = $Timer
-@onready var ding_sound: AudioStreamPlayer = $Ding
+@onready var failed_sound: AudioStreamPlayer = $Failed
+@onready var completed_sound: AudioStreamPlayer = $Completed
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,9 +19,10 @@ func _ready() -> void:
 
 func _on_word_failed() -> void:
 	score.text = str(int(score.text) - 10)
-	ding_sound.play()
+	failed_sound.play()
 func _on_word_completed(word: String) -> void:
 	score.text = str(int(score.text) + word.length() * 3)
+	completed_sound.play()
 
 func _on_despawn_area_body_entered(body: Node2D) -> void:
 	if body is Word:
