@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=39 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://main.gd" id="1_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://c560r2l8m31ek" path="res://assets/Scaffold.png" id="2_7jktm"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3eqox1cl6ydd" path="res://assets/KeyboardFull.png" id="8_j5wjh"]
 [ext_resource type="AudioStream" uid="uid://crmbhy50ub6e2" path="res://assets/ding-03.wav" id="9_vef74"]
 [ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="10_hve3p"]
+[ext_resource type="FontFile" uid="uid://c0usj0666vr6v" path="res://assets/F25_Bank_Printer_Bold.ttf" id="11_mfdv2"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -163,12 +164,16 @@ animations = [{
 offsets = PackedFloat32Array(0, 0.546667, 1)
 colors = PackedColorArray(0.345098, 0.109804, 0, 1, 1, 0.317647, 0, 1, 1, 0.533333, 0.317647, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
+bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
 font = ExtResource("7_eow3j")
 font_size = 76
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
-bg_color = Color(0.219608, 0.219608, 0.219608, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
+font = ExtResource("11_mfdv2")
+font_size = 76
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_fc0e3")
@@ -366,14 +371,6 @@ scale_amount_min = 5.0
 scale_amount_max = 5.0
 color_ramp = SubResource("Gradient_fc0e3")
 
-[node name="Score" type="Label" parent="."]
-offset_left = 25.0
-offset_top = 26.0
-offset_right = 166.0
-offset_bottom = 102.0
-text = "1234"
-label_settings = SubResource("LabelSettings_j5wjh")
-
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 428.0
 offset_top = 421.0
@@ -399,3 +396,21 @@ volume_db = -14.991
 
 [node name="Completed" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_hve3p")
+
+[node name="GameUI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="GameUI"]
+offset_left = 25.0
+offset_top = 26.0
+offset_right = 166.0
+offset_bottom = 102.0
+text = "1234"
+label_settings = SubResource("LabelSettings_j5wjh")
+
+[node name="CurrentTyping" type="Label" parent="GameUI"]
+offset_top = 26.0
+offset_right = 1152.0
+offset_bottom = 102.0
+text = "1234"
+label_settings = SubResource("LabelSettings_iotsf")
+horizontal_alignment = 1

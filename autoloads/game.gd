@@ -2,6 +2,8 @@ extends Node
 
 signal word_completed(word: String)
 signal word_failed()
+signal letter_typed(letter: String)
+
 var words_by_length: Dictionary = {}
 var active_words: Array = []
 var current_typing: String = ""
@@ -22,7 +24,7 @@ func _input(event):
 			input_buffer += character
 			print("Current input buffer: ", input_buffer)
 			print("Active words: ", active_words)
-
+			letter_typed.emit(character)
 			# Trim the buffer to the max cheat length
 			if input_buffer.length() > max_input_length:
 				input_buffer = input_buffer.substr(input_buffer.length() - max_input_length, max_input_length)
