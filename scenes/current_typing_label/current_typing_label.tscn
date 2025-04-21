@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://0114ckc6otb1"]
+
+[ext_resource type="FontFile" uid="uid://c0usj0666vr6v" path="res://assets/F25_Bank_Printer_Bold.ttf" id="1_5nkpt"]
+[ext_resource type="Script" uid="uid://pf8spmonix2k" path="res://scenes/current_typing_label/current_typing_label.gd" id="2_xvhqr"]
+[ext_resource type="Gradient" uid="uid://brtbjrjertm0" path="res://fire_particles_color_ramp.tres" id="3_gexlw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
+font = ExtResource("1_5nkpt")
+font_size = 76
+
+[sub_resource type="Gradient" id="Gradient_mfdv2"]
+offsets = PackedFloat32Array(0, 0.246667, 0.546667, 1)
+colors = PackedColorArray(0.364706, 0.529412, 0.211765, 1, 0.501961, 0.615686, 0.235294, 1, 0.662745, 0.768627, 0.423529, 1, 0.956863, 1, 0.764706, 1)
+
+[node name="CurrentTyping" type="Label"]
+offset_top = 88.0
+offset_right = 1152.0
+offset_bottom = 164.0
+text = "1234"
+label_settings = SubResource("LabelSettings_iotsf")
+horizontal_alignment = 1
+script = ExtResource("2_xvhqr")
+
+[node name="SuccessParticles" type="CPUParticles2D" parent="."]
+position = Vector2(575, 138)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.61
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 254.62
+initial_velocity_max = 537.45
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+color_ramp = SubResource("Gradient_mfdv2")
+
+[node name="FailureParticles" type="CPUParticles2D" parent="."]
+position = Vector2(575, 138)
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.61
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 500)
+initial_velocity_min = 254.62
+initial_velocity_max = 537.45
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+color_ramp = ExtResource("3_gexlw")

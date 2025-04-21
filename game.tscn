@@ -1,17 +1,13 @@
-[gd_scene load_steps=42 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=32 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://main.gd" id="1_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://c560r2l8m31ek" path="res://assets/Scaffold.png" id="2_7jktm"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="2_ryrav"]
-[ext_resource type="Texture2D" uid="uid://bu7f5kcseiix7" path="res://assets/fire_base.png" id="3_fc0e3"]
-[ext_resource type="Texture2D" uid="uid://dct727yos3hal" path="res://assets/FirePit.png" id="3_feb5d"]
 [ext_resource type="Texture2D" uid="uid://bqq58rj2t5jjx" path="res://assets/new_conveyor.png" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://bcxk1xwvkpmll" path="res://scenes/fire_pit/fire_pit.tscn" id="5_lc2xo"]
 [ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="7_eow3j"]
-[ext_resource type="Gradient" uid="uid://brtbjrjertm0" path="res://fire_particles_color_ramp.tres" id="7_iotsf"]
+[ext_resource type="PackedScene" uid="uid://0114ckc6otb1" path="res://scenes/current_typing_label/current_typing_label.tscn" id="7_hve3p"]
 [ext_resource type="PackedScene" uid="uid://dahf4dpbg2m7a" path="res://scenes/keyboard/keyboard.tscn" id="7_mfdv2"]
-[ext_resource type="AudioStream" uid="uid://crmbhy50ub6e2" path="res://assets/ding-03.wav" id="9_vef74"]
-[ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="10_hve3p"]
-[ext_resource type="FontFile" uid="uid://c0usj0666vr6v" path="res://assets/F25_Bank_Printer_Bold.ttf" id="11_mfdv2"]
 [ext_resource type="FontFile" uid="uid://qvaoj3f8byk4" path="res://assets/F25_Bank_Printer.ttf" id="13_215e1"]
 [ext_resource type="PackedScene" uid="uid://bhvimsqkbu22t" path="res://scenes/typo_mode/typo_mode.tscn" id="13_lc2xo"]
 
@@ -138,41 +134,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
 size = Vector2(1201, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
-size = Vector2(140.25, 90)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
-atlas = ExtResource("3_feb5d")
-region = Rect2(0, 64, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eow3j"]
-atlas = ExtResource("3_feb5d")
-region = Rect2(64, 64, 64, 64)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_j5wjh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ryrav")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eow3j")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
 bg_color = Color(0.219608, 0.219608, 0.219608, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_iotsf"]
-font = ExtResource("11_mfdv2")
-font_size = 76
-
-[sub_resource type="Gradient" id="Gradient_mfdv2"]
-offsets = PackedFloat32Array(0, 0.246667, 0.546667, 1)
-colors = PackedColorArray(0.364706, 0.529412, 0.211765, 1, 0.501961, 0.615686, 0.235294, 1, 0.662745, 0.768627, 0.423529, 1, 0.956863, 1, 0.764706, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
 font = ExtResource("7_eow3j")
@@ -334,113 +297,28 @@ position = Vector2(362, 428)
 position = Vector2(459.5, 22)
 shape = SubResource("RectangleShape2D_feb5d")
 
-[node name="FirePitBase" type="Sprite2D" parent="."]
-z_index = 2
+[node name="FirePit" parent="." instance=ExtResource("5_lc2xo")]
 position = Vector2(163, 551)
-scale = Vector2(3, 3)
-texture = ExtResource("3_fc0e3")
-region_enabled = true
-region_rect = Rect2(0, 0, 64, 64)
 
-[node name="DespawnArea" type="Area2D" parent="FirePitBase"]
-position = Vector2(1.33334, 31)
-scale = Vector2(0.333333, 0.333333)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FirePitBase/DespawnArea"]
-shape = SubResource("RectangleShape2D_fc0e3")
-
-[node name="FirePitBase2" type="Sprite2D" parent="FirePitBase"]
-texture = ExtResource("3_fc0e3")
-region_enabled = true
-region_rect = Rect2(0, 64, 64, 64)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FirePitBase"]
-z_index = 2
-sprite_frames = SubResource("SpriteFrames_j5wjh")
-autoplay = "default"
-
-[node name="Particles" type="CPUParticles2D" parent="FirePitBase"]
-z_index = 2
-position = Vector2(1.33333, -0.666672)
-scale = Vector2(0.333333, 0.333333)
-emitting = false
-amount = 50
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-direction = Vector2(0, -1)
-initial_velocity_min = 312.42
-initial_velocity_max = 474.74
-scale_amount_min = 5.0
-scale_amount_max = 5.0
-color_ramp = ExtResource("7_iotsf")
-
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="KeyboardContainer" type="PanelContainer" parent="."]
 offset_left = 428.0
 offset_top = 421.0
 offset_right = 1055.0
 offset_bottom = 662.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_vef74")
 
-[node name="Keyboard" parent="PanelContainer" instance=ExtResource("7_mfdv2")]
+[node name="Keyboard" parent="KeyboardContainer" instance=ExtResource("7_mfdv2")]
 position = Vector2(313, 120)
 
-[node name="Failed" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_vef74")
-volume_db = -14.991
-
-[node name="Completed" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_hve3p")
-
-[node name="CurrentTyping" type="Label" parent="."]
-offset_top = 88.0
-offset_right = 1152.0
-offset_bottom = 164.0
-text = "1234"
-label_settings = SubResource("LabelSettings_iotsf")
-horizontal_alignment = 1
-
-[node name="SuccessParticles" type="CPUParticles2D" parent="CurrentTyping"]
-position = Vector2(575, 138)
-emitting = false
-amount = 50
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-lifetime_randomness = 0.61
-direction = Vector2(0, -1)
-spread = 180.0
-gravity = Vector2(0, 500)
-initial_velocity_min = 254.62
-initial_velocity_max = 537.45
-scale_amount_min = 5.0
-scale_amount_max = 20.0
-color_ramp = SubResource("Gradient_mfdv2")
-
-[node name="FailureParticles" type="CPUParticles2D" parent="CurrentTyping"]
-position = Vector2(575, 138)
-emitting = false
-amount = 50
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-lifetime_randomness = 0.61
-direction = Vector2(0, -1)
-spread = 180.0
-gravity = Vector2(0, 500)
-initial_velocity_min = 254.62
-initial_velocity_max = 537.45
-scale_amount_min = 5.0
-scale_amount_max = 20.0
-color_ramp = ExtResource("7_iotsf")
+[node name="CurrentTyping" parent="." instance=ExtResource("7_hve3p")]
 
 [node name="GameUI" type="CanvasLayer" parent="."]
 
 [node name="Score" type="Label" parent="GameUI"]
 offset_left = 25.0
-offset_top = 89.0
+offset_top = 31.0
 offset_right = 166.0
-offset_bottom = 165.0
+offset_bottom = 107.0
 text = "1234"
 label_settings = SubResource("LabelSettings_j5wjh")
 

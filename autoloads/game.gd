@@ -1,7 +1,7 @@
 extends Node
 
 signal word_completed(word: String)
-signal word_failed()
+signal typo()
 signal word_fell_in_fire(word: String)
 signal letter_typed(letter: String, is_valid: bool)
 signal typo_mode_started()
@@ -75,7 +75,7 @@ func _unhandled_input(event):
 				
 				# If no partial matches found, reset the buffer
 				if not has_partial_match:
-					word_failed.emit()
+					typo.emit()
 					letter_typed.emit(character, false)
 					print("No partial matches found")
 					input_buffer = ""
