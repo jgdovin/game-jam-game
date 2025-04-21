@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dahf4dpbg2m7a"]
+
+[ext_resource type="Texture2D" uid="uid://bjn53iy53gxr5" path="res://assets/Keyboard/FullKeyboard.png" id="1_a8m4y"]
+[ext_resource type="Script" uid="uid://ct520qd0nubpx" path="res://scenes/keyboard/keyboard.gd" id="2_rk632"]
+
+[node name="Keyboard" type="Sprite2D"]
+self_modulate = Color(0.423651, 0.423651, 0.423651, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_a8m4y")
+script = ExtResource("2_rk632")
+
+[node name="KeyboardStartPoint" type="Node2D" parent="."]
+position = Vector2(-135, -33.5)
+scale = Vector2(0.5, 0.5)

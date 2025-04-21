@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2rbe486uif26"]
+
+[ext_resource type="Texture2D" uid="uid://qf30oyep4vd6" path="res://assets/Keyboard/Q.png" id="1_efj5b"]
+[ext_resource type="Script" uid="uid://c2i0stwfdg2ly" path="res://scenes/keyboard/key.gd" id="2_v306x"]
+
+[node name="Key" type="Sprite2D"]
+texture = ExtResource("1_efj5b")
+script = ExtResource("2_v306x")

@@ -2,7 +2,8 @@ extends Node
 
 signal word_completed(word: String)
 signal word_failed()
-signal letter_typed(letter: String)
+signal word_fell_in_fire(word: String)
+signal letter_typed(letter: String, is_valid: bool)
 
 var words_by_length: Dictionary = {}
 var active_words: Array = []
@@ -24,7 +25,6 @@ func _input(event):
 			input_buffer += character
 			print("Current input buffer: ", input_buffer)
 			print("Active words: ", active_words)
-			letter_typed.emit(character)
 			# Trim the buffer to the max cheat length
 			if input_buffer.length() > max_input_length:
 				input_buffer = input_buffer.substr(input_buffer.length() - max_input_length, max_input_length)
@@ -40,6 +40,7 @@ func _input(event):
 					for node in get_tree().get_nodes_in_group("words"):
 						if node.word_text.to_upper() == word.to_upper():
 							print("Found matching Word node")
+							letter_typed.emit(character, true)
 							word_completed.emit(word)
 							node.complete()
 							break
@@ -54,12 +55,14 @@ func _input(event):
 				for word in active_words:
 					if word.to_lower().begins_with(input_buffer.to_lower()):
 						has_partial_match = true
+						letter_typed.emit(character, true)
 						print("Partial match found with: ", word)
 						break
 				
 				# If no partial matches found, reset the buffer
 				if not has_partial_match:
 					word_failed.emit()
+					letter_typed.emit(character, false)
 					print("No partial matches found")
 					input_buffer = ""
 

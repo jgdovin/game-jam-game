@@ -32,7 +32,7 @@ func _ready() -> void:
 	
 	body_entered.connect(_on_body_entered)
 
-func _on_letter_typed(_letter: String) -> void:
+func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
 	var buffer = Game.input_buffer.to_lower()
 	if word_text.begins_with(buffer):
 		var spaces = " ".repeat(word_text.length() - buffer.length())
@@ -53,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 
 func do_damage() -> void:
 	print("do damage")
-	Game.word_failed.emit()
+	Game.word_fell_in_fire.emit(word_text)
 	queue_free()
 
 func complete() -> void:
