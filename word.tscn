@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnkukoonjfdau"]
+
+[ext_resource type="Script" uid="uid://lc20mhfilixd" path="res://word.gd" id="1_3q3ku"]
+[ext_resource type="FontFile" uid="uid://c0usj0666vr6v" path="res://assets/F25_Bank_Printer_Bold.ttf" id="2_vl1uy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5kvxf"]
+font = ExtResource("2_vl1uy")
+font_size = 46
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vl1uy"]
+blend_mode = 3
+
+[node name="Word" type="RigidBody2D"]
+z_index = 1
+gravity_scale = 3.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_3q3ku")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -450.0
+offset_top = -25.0
+offset_right = 450.0
+offset_bottom = 22.0
+text = "An"
+label_settings = SubResource("LabelSettings_5kvxf")
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_vl1uy")
+offset_left = -34.0
+offset_top = -23.0
+offset_right = -9.0
+offset_bottom = 20.0
+color = Color(0.0352941, 1, 1, 1)
