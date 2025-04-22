@@ -16,15 +16,17 @@ func _on_typo_mode_started() -> void:
 	current_progress = 0.0
 	current_letter = alphabet[randi() % alphabet.size()]
 	sprite.texture = load("res://assets/Keyboard/%s.png" % current_letter)
+	SoundManager.play_typo_music()
 	visible = true
 
 func _on_typo_mode_ended() -> void:
 	visible = false
+	SoundManager.play_game_music()
 
 func _process(delta: float) -> void:
 	if current_progress < 0.0:
 		return
-	current_progress -= 40 * delta
+	current_progress -= 20 * delta
 	progress_bar.value = current_progress
 
 func _input(event: InputEvent):

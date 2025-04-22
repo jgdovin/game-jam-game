@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://3btnrhnagxq3"]
+
+[ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="1_juhlf"]
+[ext_resource type="Script" uid="uid://be2gb2kupo26u" path="res://scenes/score/score.gd" id="2_27w82"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5wjh"]
+font = ExtResource("1_juhlf")
+font_size = 76
+
+[node name="Score" type="Label"]
+offset_left = 25.0
+offset_top = 31.0
+offset_right = 166.0
+offset_bottom = 107.0
+text = "1234"
+label_settings = SubResource("LabelSettings_j5wjh")
+script = ExtResource("2_27w82")

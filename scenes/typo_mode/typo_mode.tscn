@@ -42,14 +42,14 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_javqj"]
-bg_color = Color(1, 0, 0, 1)
+bg_color = Color(1, 0.631373, 0.188235, 1)
 
 [node name="TypoMode" type="Node2D"]
 script = ExtResource("1_javqj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0, 0.0392157, 1)
-scale = Vector2(5, 5)
+self_modulate = Color(1, 0.631373, 0.188235, 1)
+scale = Vector2(10, 10)
 texture = ExtResource("2_cv4bp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -59,7 +59,6 @@ libraries = {
 autoplay = "typo"
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-visible = false
 offset_left = 192.0
 offset_top = -144.0
 offset_right = 229.0

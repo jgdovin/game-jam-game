@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Typing Factory"
-run/main_scene="uid://bwfxu7wkeddsl"
+run/main_scene="uid://bk7tyqw0fdr7v"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
+References="*res://autoloads/references.gd"
 Game="*res://autoloads/game.gd"
 SoundManager="*res://autoloads/sound_manager/sound_manager.tscn"
 

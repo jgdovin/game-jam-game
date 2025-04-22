@@ -6,6 +6,7 @@ signal word_fell_in_fire(word: String)
 signal letter_typed(letter: String, is_valid: bool)
 signal typo_mode_started()
 signal typo_mode_ended()
+signal score_changed(new_score: int)
 
 var typo_mode: bool = false
 
@@ -17,8 +18,32 @@ var current_score: int = 0
 var input_buffer: String = ""
 var max_input_length: int = 10
 
+var game_active: bool = false
+
 func _ready():
 	load_words()
+
+func start_game() -> void:
+	game_active = true
+	SoundManager.play_game_music()
+
+func end_game() -> void:
+	game_active = false
+	SoundManager.play_game_music()
+	
+func clear_game_state() -> void:
+	active_words.clear()
+	input_buffer = ""
+	current_typing = ""
+	current_score = 0
+
+func increase_score(amount: int) -> void:
+	current_score += amount
+	score_changed.emit(current_score)
+
+func decrease_score(amount: int) -> void:
+	current_score -= amount
+	score_changed.emit(current_score)
 
 func start_typo_mode() -> void:
 	typo_mode = true
@@ -29,7 +54,7 @@ func end_typo_mode() -> void:
 	typo_mode_ended.emit()
 
 func _unhandled_input(event):
-	if typo_mode:
+	if typo_mode or not game_active:
 		return
 	if event is InputEventKey and event.pressed and !event.echo:
 		# Convert the keycode to a character
@@ -79,7 +104,6 @@ func _unhandled_input(event):
 					letter_typed.emit(character, false)
 					print("No partial matches found")
 					input_buffer = ""
-
 
 func load_words():
 	var file = FileAccess.open("assets/words.txt", FileAccess.READ)
