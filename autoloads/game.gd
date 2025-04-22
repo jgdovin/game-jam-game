@@ -1,7 +1,7 @@
 extends Node
 
 signal word_completed(word: String)
-signal typo()
+signal typo(typos_made: int)
 signal word_fell_in_fire(word: String)
 signal letter_typed(letter: String, is_valid: bool)
 signal typo_mode_started()
@@ -20,6 +20,8 @@ var max_input_length: int = 10
 
 var game_active: bool = false
 
+var typos_made: int = 0
+
 func _ready():
 	load_words()
 
@@ -30,7 +32,7 @@ func start_game() -> void:
 func end_game() -> void:
 	game_active = false
 	SoundManager.play_game_music()
-	
+
 func clear_game_state() -> void:
 	active_words.clear()
 	input_buffer = ""
@@ -100,7 +102,9 @@ func _unhandled_input(event):
 				
 				# If no partial matches found, reset the buffer
 				if not has_partial_match:
-					typo.emit()
+					typo.emit(typos_made)
+					typos_made += 1
+					References.health.take_damage(2)
 					letter_typed.emit(character, false)
 					print("No partial matches found")
 					input_buffer = ""

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=32 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="2_7v5iq"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://djtc8frmq7460" path="res://scenes/typo_display/typo_display.tscn" id="7_7wd4f"]
 [ext_resource type="PackedScene" uid="uid://0114ckc6otb1" path="res://scenes/current_typing_label/current_typing_label.tscn" id="7_i4dya"]
 [ext_resource type="PackedScene" uid="uid://bhvimsqkbu22t" path="res://scenes/typo_mode/typo_mode.tscn" id="10_qrdmi"]
+[ext_resource type="PackedScene" uid="uid://pjukli8wk0v1" path="res://scenes/health/health.tscn" id="10_vv6eg"]
+[ext_resource type="PackedScene" uid="uid://t1xxo6b7wu2c" path="res://scenes/summary/summary.tscn" id="11_7v5iq"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -58,19 +60,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7sc4i"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5iq"]
 atlas = ExtResource("4_5pcoe")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_80cx4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggcq3"]
 atlas = ExtResource("4_5pcoe")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8heu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pcoe"]
 atlas = ExtResource("4_5pcoe")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvswv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_258vx"]
 atlas = ExtResource("4_5pcoe")
 region = Rect2(96, 0, 32, 32)
 
@@ -78,16 +80,16 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7sc4i")
+"texture": SubResource("AtlasTexture_7v5iq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_80cx4")
+"texture": SubResource("AtlasTexture_ggcq3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e8heu")
+"texture": SubResource("AtlasTexture_5pcoe")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rvswv")
+"texture": SubResource("AtlasTexture_258vx")
 }],
 "loop": true,
 "name": &"default",
@@ -139,6 +141,7 @@ bg_color = Color(0.113725, 0.262745, 0.329412, 0.92549)
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_vv6eg")
 metadata/_edit_horizontal_guides_ = [91.0]
+metadata/_edit_vertical_guides_ = [568.0]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 offset_left = -33.0
@@ -208,6 +211,7 @@ position = Vector2(1054, 443)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_boyg6")
 autoplay = "default"
+frame_progress = 0.446801
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="ConveyorBelts"]
 position = Vector2(1182, 443)
@@ -313,3 +317,8 @@ position = Vector2(313, 120)
 visible = false
 z_index = 2
 position = Vector2(575, 322)
+
+[node name="Health" parent="." instance=ExtResource("10_vv6eg")]
+base_health = 10
+
+[node name="Summary" parent="." instance=ExtResource("11_7v5iq")]

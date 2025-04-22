@@ -54,6 +54,7 @@ func _physics_process(_delta: float) -> void:
 func do_damage() -> void:
 	print("do damage")
 	Game.word_fell_in_fire.emit(word_text)
+	References.health.take_damage(word_text.length() * 3)
 	queue_free()
 
 func complete() -> void:

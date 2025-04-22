@@ -16,7 +16,7 @@ func _ready() -> void:
 	for label in labels:
 		label.self_modulate = Color(.286, .384, .431, 1)
 
-func _on_typo() -> void:
+func _on_typo(typos_made: int) -> void:
 	if invulnerable:
 		return
 	typo_count += 1

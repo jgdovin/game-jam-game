@@ -12,7 +12,7 @@ func _ready() -> void:
 func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
 	text = Game.input_buffer
 
-func _on_typo() -> void:
+func _on_typo(typos_made: int) -> void:
 	text = ""
 
 func _on_word_fell_in_fire(_word: String) -> void:

@@ -16,7 +16,7 @@ func _ready() -> void:
 	Game.typo.connect(_on_typo)
 	Game.word_fell_in_fire.connect(_on_word_fell_in_fire)
 
-func _on_typo() -> void:
+func _on_typo(typos_made: int) -> void:
 	SoundManager.play_typo()
 	Game.decrease_score(1)
 	var new_failure_particles = failure_particles.duplicate()
@@ -39,6 +39,8 @@ func _on_word_completed(word: String) -> void:
 	new_success_particles.queue_free()
 
 func _on_timer_timeout() -> void:
+	if not Game.game_active:
+		return
 	var word = word_scene.instantiate()
 	word.position = word_spawn_point.position
 	add_child(word)

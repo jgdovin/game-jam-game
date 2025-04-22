@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dnkt6bb6gimck"]
+
+[ext_resource type="FontFile" uid="uid://25vfhmal8viy" path="res://assets/fonts/Long_Shot.ttf" id="1_7vs35"]
+
+[resource]
+font = ExtResource("1_7vs35")
+font_size = 50
+font_color = Color(0.65098, 0.560784, 0.505882, 1)
