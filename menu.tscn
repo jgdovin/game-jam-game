@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cljd1s7ui0fx0"]
+[gd_scene load_steps=11 format=3 uid="uid://cljd1s7ui0fx0"]
 
 [ext_resource type="Script" uid="uid://caxsoxs3kb8b4" path="res://scenes/main_menu/main_menu.gd" id="1_l48gv"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="1_ytr4m"]
@@ -74,6 +74,15 @@ _data = {
 &"default": SubResource("Animation_kk3ma")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+bg_color = Color(0.051971, 0.051971, 0.0519709, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.831373, 0.356863, 0.0901961, 1)
+border_blend = true
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -93,8 +102,6 @@ offset_bottom = 122.0
 scale = Vector2(4, 4)
 texture = ExtResource("1_ytr4m")
 stretch_mode = 1
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -171,3 +178,84 @@ libraries = {
 &"": SubResource("AnimationLibrary_iqepy")
 }
 autoplay = "default"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 538.0
+offset_right = 1117.0
+offset_bottom = 610.0
+theme = ExtResource("4_l48gv")
+theme_override_font_sizes/font_size = 31
+text = "CREDITS"
+
+[node name="PanelContainer2" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.5
+offset_top = -229.5
+offset_right = 365.5
+offset_bottom = 229.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4hy44")
+
+[node name="Thanks" type="Label" parent="PanelContainer2"]
+layout_mode = 2
+offset_left = 90.5
+offset_top = 85.5
+offset_right = 263.5
+offset_bottom = 127.5
+theme_override_font_sizes/font_size = 41
+text = "Developer"
+
+[node name="Thanks2" type="Label" parent="PanelContainer2"]
+layout_mode = 2
+offset_left = 296.5
+offset_top = 85.5
+offset_right = 469.5
+offset_bottom = 127.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 41
+text = "Josh Gdovin"
+
+[node name="Thanks3" type="Label" parent="PanelContainer2"]
+offset_left = 90.5
+offset_top = 141.5
+offset_right = 263.5
+offset_bottom = 183.5
+theme_override_font_sizes/font_size = 41
+text = "Art"
+horizontal_alignment = 2
+
+[node name="Thanks4" type="Label" parent="PanelContainer2"]
+offset_left = 296.5
+offset_top = 141.5
+offset_right = 487.5
+offset_bottom = 183.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 41
+text = "Kelby Smith"
+
+[node name="Thanks5" type="Label" parent="PanelContainer2"]
+offset_left = 90.5
+offset_top = 197.5
+offset_right = 263.5
+offset_bottom = 239.5
+theme_override_font_sizes/font_size = 41
+text = "Music"
+horizontal_alignment = 2
+
+[node name="Thanks6" type="Label" parent="PanelContainer2"]
+offset_left = 296.5
+offset_top = 197.5
+offset_right = 493.5
+offset_bottom = 239.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 41
+text = "Kelby Smith"

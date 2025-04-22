@@ -25,6 +25,10 @@ SoundManager="*res://autoloads/sound_manager/sound_manager.tscn"
 
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/custom="uid://boarbiipirdws"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
