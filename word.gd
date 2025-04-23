@@ -24,13 +24,16 @@ func _ready() -> void:
 	# Create a new unique collision shape
 	collision_shape = CollisionShape2D.new()
 	var shape = RectangleShape2D.new()
-	shape.size.x = word_length * 24
-	shape.size.y = 32  # You can adjust this height as needed
+	shape.size.x = word_length * 18
+	shape.size.y = 10  # You can adjust this height as needed
+	collision_shape.global_position.y = collision_shape.global_position.y - 10
 	collision_shape.shape = shape
 	# collision_shape.debug_color = Color.RED
 	add_child(collision_shape)
 	
 	body_entered.connect(_on_body_entered)
+	Game.game_ended.connect(_on_game_ended)
+
 
 func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
 	var buffer = Game.input_buffer.to_lower()
@@ -59,4 +62,8 @@ func do_damage() -> void:
 
 func complete() -> void:
 	print("Word completed: ", word_text)
+	queue_free()
+
+func _on_game_ended() -> void:
+	print("Game ended, destorying word: ", word_text)
 	queue_free()

@@ -1,7 +1,6 @@
-extends Node2D
+extends ProgressBar
 class_name Health
 
-@onready var health_bar: ProgressBar = $HealthBar
 @export var base_health: int = 100
 var current_health: int = base_health
 
@@ -12,11 +11,11 @@ signal health_depleted()
 func _ready() -> void:
 	References.health = self
 	current_health = base_health
-	health_bar.value = current_health
+	value = current_health
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
-	health_bar.value = current_health
+	value = current_health
 	health_changed.emit(current_health)
 	if current_health <= 0:
 		health_depleted.emit()

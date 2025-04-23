@@ -20,8 +20,7 @@ func _on_credits_pressed() -> void:
 	credits_panel.visible = !credits_panel.visible
 
 func _on_start_pressed() -> void:
-	References.game_controller.change_gui_scene(References.game_controller.score)
-	References.game_controller.change_2d_scene(References.game_controller.factory)
+	References.game_controller.load_factory()
 	Game.start_game()
 
 func _on_exit_pressed() -> void:

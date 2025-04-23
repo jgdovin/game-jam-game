@@ -82,7 +82,7 @@ texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
 
-[node name="Control" type="Control"]
+[node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -93,7 +93,6 @@ script = ExtResource("1_l48gv")
 metadata/_edit_vertical_guides_ = [439.0, 778.0]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
 offset_left = -233.0
 offset_top = -136.0
 offset_right = 194.0
@@ -180,7 +179,6 @@ autoplay = "default"
 
 [node name="Credits" type="Button" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
 offset_left = 984.0
 offset_top = 538.0
 offset_right = 1117.0
@@ -225,6 +223,7 @@ theme_override_font_sizes/font_size = 41
 text = "Josh Gdovin"
 
 [node name="Thanks3" type="Label" parent="CreditsPanel"]
+layout_mode = 0
 offset_left = 90.5
 offset_top = 141.5
 offset_right = 263.5
@@ -234,6 +233,7 @@ text = "Art"
 horizontal_alignment = 2
 
 [node name="Thanks4" type="Label" parent="CreditsPanel"]
+layout_mode = 0
 offset_left = 296.5
 offset_top = 141.5
 offset_right = 487.5
@@ -243,6 +243,7 @@ theme_override_font_sizes/font_size = 41
 text = "Kelby Smith"
 
 [node name="Thanks5" type="Label" parent="CreditsPanel"]
+layout_mode = 0
 offset_left = 90.5
 offset_top = 197.5
 offset_right = 263.5
@@ -252,6 +253,7 @@ text = "Music"
 horizontal_alignment = 2
 
 [node name="Thanks6" type="Label" parent="CreditsPanel"]
+layout_mode = 0
 offset_left = 296.5
 offset_top = 197.5
 offset_right = 493.5
@@ -261,6 +263,7 @@ theme_override_font_sizes/font_size = 41
 text = "Stephen alexander"
 
 [node name="Thanks7" type="Label" parent="CreditsPanel"]
+layout_mode = 0
 offset_left = 296.5
 offset_top = 253.5
 offset_right = 612.5

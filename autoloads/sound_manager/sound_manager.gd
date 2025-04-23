@@ -22,3 +22,6 @@ func play_typo_music() -> void:
 func play_game_music() -> void:
 	typo_music.stop()
 	game_music.play()
+
+func stop_game_music() -> void:
+	game_music.stop()

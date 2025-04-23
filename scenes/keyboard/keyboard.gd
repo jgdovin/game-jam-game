@@ -2,8 +2,6 @@ extends Sprite2D
 
 @onready var key_scene: PackedScene = preload("res://scenes/keyboard/key.tscn")
 @onready var keyboard_start_point: Node2D = $KeyboardStartPoint
-@onready var failed_sound: AudioStreamPlayer = $Failed
-@onready var completed_sound: AudioStreamPlayer = $Completed
 
 var row_1: Array[String] = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"]
 var row_2: Array[String] = ["a", "s", "d", "f", "g", "h", "j", "k", "l"]

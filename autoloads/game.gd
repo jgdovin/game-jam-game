@@ -1,4 +1,5 @@
 extends Node
+var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 signal word_completed(word: String)
 signal typo(typos_made: int)
@@ -7,31 +8,67 @@ signal letter_typed(letter: String, is_valid: bool)
 signal typo_mode_started()
 signal typo_mode_ended()
 signal score_changed(new_score: int)
+signal game_started()
+signal game_ended()
+signal damage_taken()
 
 var typo_mode: bool = false
 
 var words_by_length: Dictionary = {}
 var active_words: Array = []
 var current_typing: String = ""
-var current_score: int = 0
 
 var input_buffer: String = ""
 var max_input_length: int = 10
 
 var game_active: bool = false
 
+var current_score: int = 0
 var typos_made: int = 0
+var words_completed: int = 0
+var words_in_fire: int = 0
+var letters_typed: int = 0
+
+var difficulty: int = 1
 
 func _ready():
 	load_words()
+	letter_typed.connect(_on_letter_typed)
+	word_completed.connect(_on_word_completed)
+	word_fell_in_fire.connect(_on_word_fell_in_fire)
+
+func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
+	letters_typed += 1
+
+func _on_word_completed(_word: String) -> void:
+	words_completed += 1
+
+func _on_word_fell_in_fire(_word: String) -> void:
+	words_in_fire += 1
 
 func start_game() -> void:
+	_reset_game_state()
 	game_active = true
 	SoundManager.play_game_music()
+	game_started.emit()
+
+func _reset_game_state() -> void:
+	game_active = false
+	current_score = 0
+	typos_made = 0
+	active_words.clear()
+	input_buffer = ""
+	current_typing = ""
+	letters_typed = 0
+	words_completed = 0
+	words_in_fire = 0
+	score_changed.emit(current_score)
 
 func end_game() -> void:
 	game_active = false
-	SoundManager.play_game_music()
+	References.game_controller.load_summary()
+	game_ended.emit()
+
 
 func clear_game_state() -> void:
 	active_words.clear()
@@ -46,6 +83,7 @@ func increase_score(amount: int) -> void:
 func decrease_score(amount: int) -> void:
 	current_score -= amount
 	score_changed.emit(current_score)
+	damage_taken.emit()
 
 func start_typo_mode() -> void:
 	typo_mode = true
@@ -61,8 +99,9 @@ func _unhandled_input(event):
 	if event is InputEventKey and event.pressed and !event.echo:
 		# Convert the keycode to a character
 		var character = OS.get_keycode_string(event.keycode).to_upper()
-		
-		if character:
+		if not character in alphabet:
+			return
+		if character in alphabet:
 			input_buffer += character
 			print("Current input buffer: ", input_buffer)
 			print("Active words: ", active_words)
@@ -128,6 +167,7 @@ func load_words():
 		words_by_length[length].sort()
 	
 	file.close()
+	print("Loaded words: ", words_by_length.keys())
 
 func get_random_word(length: int) -> String:
 	if not words_by_length.has(length):

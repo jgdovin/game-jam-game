@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c0wris2yh4qhv"]
+[gd_scene load_steps=7 format=3 uid="uid://c0wris2yh4qhv"]
 
 [ext_resource type="Script" uid="uid://2adtmsii3t5y" path="res://autoloads/sound_manager/sound_manager.gd" id="1_6g708"]
-[ext_resource type="AudioStream" uid="uid://crmbhy50ub6e2" path="res://assets/ding-03.wav" id="2_3dcon"]
+[ext_resource type="AudioStream" uid="uid://cltpedmdlxyn7" path="res://assets/audio/typo_break_burn3.wav" id="2_kb6t1"]
+[ext_resource type="AudioStream" uid="uid://b2s8i2k1e78py" path="res://assets/audio/typo_break.wav" id="3_kb6t1"]
 [ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="3_qgq5b"]
 [ext_resource type="AudioStream" uid="uid://jqjpefhqo3tf" path="res://assets/music/FareTheeWell_4_instrumental.mp3" id="4_4gen6"]
 [ext_resource type="AudioStream" uid="uid://3f8hmr7vp6nc" path="res://assets/music/Menu.wav" id="5_f2ws6"]
@@ -10,11 +11,11 @@
 script = ExtResource("1_6g708")
 
 [node name="FailedWord" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_3dcon")
-volume_db = -14.991
+stream = ExtResource("2_kb6t1")
+volume_db = 5.533
 
 [node name="Typo" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_3dcon")
+stream = ExtResource("3_kb6t1")
 volume_db = -14.991
 
 [node name="Completed" type="AudioStreamPlayer" parent="."]

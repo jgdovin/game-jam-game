@@ -5,8 +5,8 @@ extends Node2D
 @onready var timer: Timer = $Timer
 
 
-@onready var failure_particles: CPUParticles2D = $CurrentTyping/FailureParticles
-@onready var success_particles: CPUParticles2D = $CurrentTyping/SuccessParticles
+@onready var failure_particles: CPUParticles2D = $UI/CurrentTyping/FailureParticles
+@onready var success_particles: CPUParticles2D = $UI/CurrentTyping/SuccessParticles
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
