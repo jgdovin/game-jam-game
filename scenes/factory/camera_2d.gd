@@ -15,10 +15,6 @@ func _ready() -> void:
 func _on_damage_taken() -> void:
 	add_trauma(0.5)
 
-# func _input(event: InputEvent) -> void:
-# 	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
-# 		add_trauma(0.5)
-
 func _process(delta: float) -> void:
 	if follow_node:
 		global_position = follow_node.global_position

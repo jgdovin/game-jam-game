@@ -93,6 +93,7 @@ script = ExtResource("1_l48gv")
 metadata/_edit_vertical_guides_ = [439.0, 778.0]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = -233.0
 offset_top = -136.0
 offset_right = 194.0
@@ -179,6 +180,7 @@ autoplay = "default"
 
 [node name="Credits" type="Button" parent="."]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 984.0
 offset_top = 538.0
 offset_right = 1117.0
@@ -189,6 +191,7 @@ text = "CREDITS"
 
 [node name="CreditsPanel" type="Panel" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -281,3 +284,15 @@ offset_right = 686.5
 offset_bottom = 113.5
 theme_override_font_sizes/font_size = 37
 text = "X"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 656.0
+offset_top = 298.0
+offset_right = 804.0
+offset_bottom = 330.0
+rotation = 0.523598
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 31
+text = "COMING SOON"

@@ -1,5 +1,6 @@
 extends Node
 var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var emojis: Array[String] = ["😊", "😒", "👍", "🙌", "💖", "😎", "😂", "😅", "😍", "🥲", "🤩", "😶‍🌫️", "🤑", "🫠", "🤯", "😭", "😷", "🥳", "💩", "😺", "🦝", "🐮", "🦜", "🦉", "⛷️", "🎊", "🎉", "🍕", "🍔", "🍿", "❤️", "💙", "💚", "💛", "🧡", "🩷"]
 
 signal word_completed(word: String)
 signal typo(typos_made: int)
@@ -11,6 +12,8 @@ signal score_changed(new_score: int)
 signal game_started()
 signal game_ended()
 signal damage_taken()
+signal difficulty_increased()
+signal emojis_updated(emojis: String)
 
 var typo_mode: bool = false
 
@@ -25,24 +28,36 @@ var game_active: bool = false
 
 var current_score: int = 0
 var typos_made: int = 0
+var typo_modes_triggered: int = 0
 var words_completed: int = 0
 var words_in_fire: int = 0
 var letters_typed: int = 0
 
 var difficulty: int = 1
 
+var player_emojis: String = ""
+
 func _ready():
 	load_words()
 	letter_typed.connect(_on_letter_typed)
 	word_completed.connect(_on_word_completed)
 	word_fell_in_fire.connect(_on_word_fell_in_fire)
+	for i in 5:
+		player_emojis += emojis[randi() % emojis.size()]
+	emojis_updated.emit(player_emojis)
+	typo_mode_started.connect(_on_typo_mode_started)
+
+func _on_typo_mode_started() -> void:
+	typo_modes_triggered += 1
 
 func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
 	letters_typed += 1
 
 func _on_word_completed(_word: String) -> void:
 	words_completed += 1
-
+	if words_completed % 10 == 0:
+		difficulty += 1
+		difficulty_increased.emit()
 func _on_word_fell_in_fire(_word: String) -> void:
 	words_in_fire += 1
 
@@ -62,11 +77,14 @@ func _reset_game_state() -> void:
 	letters_typed = 0
 	words_completed = 0
 	words_in_fire = 0
+	difficulty = 1
+	typo_modes_triggered = 0
 	score_changed.emit(current_score)
 
 func end_game() -> void:
 	game_active = false
 	References.game_controller.load_summary()
+	await Leaderboards.post_guest_score(References.quiver_leaderboard_id, Game.current_score, player_emojis, {"difficulty": Game.difficulty, "words_completed": Game.words_completed, "words_lost": Game.words_in_fire, "typos_made": Game.typos_made, "typo_modes_triggered": Game.typo_modes_triggered})
 	game_ended.emit()
 
 

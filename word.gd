@@ -8,13 +8,15 @@ var word_text: String = ""
 @onready var label: Label = $WordLabel
 var collision_shape: CollisionShape2D
 
+const SPEED = 200.0
+
 var is_on_floor: bool = false
 
 func _ready() -> void:
 	add_to_group("words")
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = randi()
-	word_length = rng.randi_range(3, 6)
+	word_length = rng.randi_range(Game.difficulty + 2, Game.difficulty + 4)
 	word_text = Game.get_random_word(word_length)
 	Game.add_word_to_active(word_text)
 	Game.letter_typed.connect(_on_letter_typed)
@@ -46,13 +48,12 @@ func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	is_on_floor = true
 
-const SPEED = 200.0
 
 func _physics_process(_delta: float) -> void:
 	if not is_on_floor:
 		return
 	
-	linear_velocity.x = -1 * SPEED
+	linear_velocity.x = -1 * SPEED - (Game.difficulty * 20)
 
 func do_damage() -> void:
 	print("do damage")

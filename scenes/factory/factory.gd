@@ -4,7 +4,7 @@ extends Node2D
 @onready var word_spawn_point: Node2D = $WordSpawnPoint
 @onready var timer: Timer = $Timer
 
-
+@onready var emojis_label: Label = %PlayerEmojis
 @onready var failure_particles: CPUParticles2D = $UI/CurrentTyping/FailureParticles
 @onready var success_particles: CPUParticles2D = $UI/CurrentTyping/SuccessParticles
 
@@ -15,6 +15,11 @@ func _ready() -> void:
 	Game.word_completed.connect(_on_word_completed)
 	Game.typo.connect(_on_typo)
 	Game.word_fell_in_fire.connect(_on_word_fell_in_fire)
+	Game.emojis_updated.connect(_on_emojis_updated)
+	emojis_label.text = Game.player_emojis
+
+func _on_emojis_updated(emojis: String) -> void:
+	emojis_label.text = emojis
 
 func _on_typo(typos_made: int) -> void:
 	SoundManager.play_typo()

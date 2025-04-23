@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://mj4wcr0vnuob"]
+
+[ext_resource type="Script" uid="uid://b7gu3ia4hlwrn" path="res://scenes/leaderboard/score_line.gd" id="1_66oxc"]
+[ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_xfb3c"]
+[ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="3_c1fqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1epml"]
+font = ExtResource("2_xfb3c")
+font_size = 20
+font_color = Color(0.231373, 0.533333, 0.611765, 1)
+
+[node name="ScoreLine" type="HBoxContainer"]
+script = ExtResource("1_66oxc")
+
+[node name="Rank" type="Label" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_1epml")
+
+[node name="Icons" type="Label" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "😀😀😀😀😀😀"
+label_settings = SubResource("LabelSettings_1epml")
+
+[node name="Score" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "999999"
+label_settings = ExtResource("3_c1fqt")
+horizontal_alignment = 1
+
+[node name="Difficulty" type="Label" parent="."]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "6"
+label_settings = ExtResource("3_c1fqt")
+horizontal_alignment = 1
+
+[node name="Completed" type="Label" parent="."]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "43"
+label_settings = ExtResource("3_c1fqt")
+horizontal_alignment = 1
+
+[node name="Lost" type="Label" parent="."]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+text = "5"
+label_settings = ExtResource("3_c1fqt")
+horizontal_alignment = 1
+
+[node name="Typo" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("3_c1fqt")
+horizontal_alignment = 1
+
+[node name="Smash" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "3"
+label_settings = ExtResource("3_c1fqt")
+horizontal_alignment = 1

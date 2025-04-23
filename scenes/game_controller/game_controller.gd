@@ -10,7 +10,7 @@ var current_gui_scene
 @onready var main_menu_scene: PackedScene = preload("res://scenes/main_menu/main_menu.tscn")
 @onready var factory_scene: PackedScene = preload("res://scenes/factory/factory.tscn")
 @onready var summary_scene: PackedScene = preload("res://scenes/summary/summary.tscn")
-
+@onready var leaderboard_scene: PackedScene = preload("res://scenes/leaderboard/leaderboard.tscn")
 var main_menu: Control
 var factory: Node2D
 var summary: Control
@@ -22,6 +22,14 @@ func _ready() -> void:
 	factory = factory_scene.instantiate()
 	summary = summary_scene.instantiate()
 	load_main_menu()
+
+func load_leaderboard() -> void:
+	if current_gui_scene:
+		current_gui_scene.queue_free()
+		current_gui_scene = null
+	var leaderboard_instance = leaderboard_scene.instantiate()
+	gui.add_child(leaderboard_instance)
+	current_gui_scene = leaderboard_instance
 
 func load_main_menu() -> void:
 	SoundManager.stop_game_music()

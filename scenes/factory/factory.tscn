@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=28 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="2_7v5iq"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://3btnrhnagxq3" path="res://scenes/score/score.tscn" id="11_7v5iq"]
 [ext_resource type="Script" uid="uid://bdh1tqlfuwlgx" path="res://scenes/factory/camera_2d.gd" id="12_ggcq3"]
 [ext_resource type="AudioStream" uid="uid://duw11wyx04ub0" path="res://assets/audio/conveyer.wav" id="13_5pcoe"]
+[ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="13_i4dya"]
+[ext_resource type="FontFile" uid="uid://25vfhmal8viy" path="res://assets/fonts/Long_Shot.ttf" id="14_64w5n"]
+[ext_resource type="Script" uid="uid://cnubg0hpocwk1" path="res://scenes/difficulty_label/difficulty_increased.gd" id="15_i4dya"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -34,6 +37,89 @@ bg_color = Color(0.113725, 0.262745, 0.329412, 0.92549)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggcq3"]
 bg_color = Color(0.113725, 0.262745, 0.329412, 0.92549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5kr2y"]
+font = ExtResource("13_i4dya")
+
+[sub_resource type="LabelSettings" id="LabelSettings_hg0jv"]
+font = ExtResource("14_64w5n")
+font_size = 90
+font_color = Color(0.610429, 0.359319, 0.203673, 1)
+
+[sub_resource type="Animation" id="Animation_qrdmi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5kr2y"]
+resource_name = "disappear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [6.26573, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667, 0.7, 0.966667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_hide"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pw8bt"]
+_data = {
+&"RESET": SubResource("Animation_qrdmi"),
+&"disappear": SubResource("Animation_5kr2y")
+}
 
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_vv6eg")
@@ -194,6 +280,32 @@ theme_override_constants/margin_right = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/Control/PanelContainer/MarginContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="UI/Control/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Player"
+label_settings = SubResource("LabelSettings_5kr2y")
+horizontal_alignment = 1
+
+[node name="PlayerEmojis" type="Label" parent="UI/Control/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
 [node name="Score" parent="UI/Control/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_7v5iq")]
 layout_mode = 2
 horizontal_alignment = 1
+
+[node name="DifficultyIncreased" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 208.0
+offset_right = 935.0
+offset_bottom = 302.0
+pivot_offset = Vector2(313, 44)
+text = "DIFFICULTY INCREASED"
+label_settings = SubResource("LabelSettings_hg0jv")
+script = ExtResource("15_i4dya")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DifficultyIncreased"]
+libraries = {
+&"": SubResource("AnimationLibrary_pw8bt")
+}
