@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=28 format=3 uid="uid://bpm3lgy15lb3l"]
 
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c7or5lffcn12q" path="res://assets/9Panel_BlueAltSm.png" id="6_qogen"]
 [ext_resource type="Texture2D" uid="uid://y8t1vjradlti" path="res://assets/hbreak.png" id="6_ss4ib"]
 [ext_resource type="PackedScene" uid="uid://cr47d8yp6g8ng" path="res://scenes/leaderboard/tooltip.tscn" id="9_db5xh"]
+[ext_resource type="Script" uid="uid://c0hmda2xktura" path="res://classes/qaudio/ButtonWithSound.gd" id="10_gad2b"]
 [ext_resource type="Texture2D" uid="uid://bqeprwunid7lc" path="res://assets/InfoIcon.png" id="10_ss4ib"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1831"]
@@ -294,6 +295,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_qogen")
 theme_override_styles/pressed = ExtResource("5_qk7a2")
 theme_override_styles/normal = ExtResource("5_qk7a2")
 text = "Home"
+script = ExtResource("10_gad2b")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="NewRun" type="Button" parent="."]
 unique_name_in_owner = true
@@ -313,6 +316,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_db5xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ss4ib")
 theme_override_styles/normal = SubResource("StyleBoxTexture_vyrnl")
 text = "New"
+script = ExtResource("10_gad2b")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="Tooltips" type="Control" parent="."]
 unique_name_in_owner = true

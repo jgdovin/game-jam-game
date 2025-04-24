@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://br57xepp6yh0u"]
+
+[ext_resource type="Script" uid="uid://i4g0adcpiqai" path="res://classes/qaudio/AudioStreamBankPool.gd" id="1_uv3p5"]
+[ext_resource type="Resource" uid="uid://dm41cw0qmbdb3" path="res://assets/audio/banks/ui_bank.tres" id="2_0cudr"]
+
+[node name="AudioStreamBankPool" type="Node"]
+script = ExtResource("1_uv3p5")
+bank = ExtResource("2_0cudr")
+metadata/_custom_type_script = "uid://i4g0adcpiqai"

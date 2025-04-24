@@ -23,19 +23,20 @@ func _on_emojis_updated(emojis: String) -> void:
 	pass
 
 func _on_typo(_typos_made: int) -> void:
-	SoundManager.play_typo()
+	SFXPool.stab_random_pitch("typo", 1.0, 0.75, 1.25)
 	var new_failure_particles = failure_particles.duplicate()
 	new_failure_particles.emitting = true
 	add_child(new_failure_particles)
 	await get_tree().create_timer(0.5).timeout
 	new_failure_particles.queue_free()
 
-func _on_word_fell_in_fire(_word: String) -> void:
-	SoundManager.play_failed_word()
+func _on_word_fell_in_fire(word: String) -> void:
+	Game.decrease_score(word.length() * 3)
+	SFXPool.stab_random_pitch("burn", 1.0, 0.5, 1.5)
 
 func _on_word_completed(word: String) -> void:
 	Game.increase_score(word.length() * 3)
-	SoundManager.play_completed()
+	SFXPool.stab("completed")
 	var new_success_particles = success_particles.duplicate()
 	new_success_particles.emitting = true
 	add_child(new_success_particles)

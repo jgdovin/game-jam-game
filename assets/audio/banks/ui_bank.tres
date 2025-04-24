@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="AudioStreamBank" load_steps=5 format=3 uid="uid://dm41cw0qmbdb3"]
+
+[ext_resource type="AudioStream" uid="uid://c4842ao00t0hg" path="res://assets/audio/ui/thonk-01.wav" id="1_vr746"]
+[ext_resource type="AudioStream" uid="uid://dce7n3gua1rui" path="res://assets/audio/ui/click-02.wav" id="2_iqhds"]
+[ext_resource type="AudioStream" uid="uid://bewrrakgkxifb" path="res://assets/audio/ui/ui-error.wav" id="3_b4fag"]
+[ext_resource type="Script" uid="uid://5bsetoa1430d" path="res://classes/qaudio/AudioStreamBank.gd" id="4_qi18f"]
+
+[resource]
+script = ExtResource("4_qi18f")
+BankName = "ui"
+BankBus = "UI"
+Bank = Dictionary[String, AudioStream]({
+"click": ExtResource("2_iqhds"),
+"disabled": ExtResource("3_b4fag"),
+"hover": ExtResource("1_vr746"),
+"hover_disabled": ExtResource("3_b4fag")
+})
+metadata/_custom_type_script = "uid://5bsetoa1430d"

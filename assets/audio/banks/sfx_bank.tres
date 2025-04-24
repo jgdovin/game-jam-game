@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="AudioStreamBank" load_steps=8 format=3 uid="uid://c00jynuoyt2ca"]
+
+[ext_resource type="AudioStream" uid="uid://cnh1bnytv3snn" path="res://assets/audio/keys/keystroke_1.wav" id="1_p7hxh"]
+[ext_resource type="AudioStream" uid="uid://irsydtoicsn" path="res://assets/audio/keys/keystroke_2.wav" id="2_eqhkw"]
+[ext_resource type="AudioStream" uid="uid://b80uq31n025hk" path="res://assets/audio/keys/keystroke_space.wav" id="3_eqhkw"]
+[ext_resource type="Script" uid="uid://5bsetoa1430d" path="res://classes/qaudio/AudioStreamBank.gd" id="3_p8a1o"]
+[ext_resource type="AudioStream" uid="uid://b2s8i2k1e78py" path="res://assets/audio/typo_break.wav" id="4_yystr"]
+[ext_resource type="AudioStream" uid="uid://cltpedmdlxyn7" path="res://assets/audio/typo_break_burn3.wav" id="5_mau2k"]
+[ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="6_oqmt8"]
+
+[resource]
+script = ExtResource("3_p8a1o")
+BankName = "sfx"
+BankBus = "SFX"
+Bank = Dictionary[String, AudioStream]({
+"burn": ExtResource("5_mau2k"),
+"completed": ExtResource("6_oqmt8"),
+"key_1": ExtResource("1_p7hxh"),
+"key_2": ExtResource("2_eqhkw"),
+"key_space": ExtResource("3_eqhkw"),
+"typo": ExtResource("4_yystr")
+})
+metadata/_custom_type_script = "uid://5bsetoa1430d"
