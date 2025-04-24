@@ -1,21 +1,21 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=25 format=3 uid="uid://bpm3lgy15lb3l"]
 
-[ext_resource type="Texture2D" uid="uid://cpq3sfy8wg3he" path="res://assets/9Panel_BlueAlt.png" id="1_b6xng"]
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
 [ext_resource type="Texture2D" uid="uid://g16x5enmi5i6" path="res://assets/ScaffoldOrange_Dark.png" id="2_db5xh"]
 [ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="2_q1831"]
+[ext_resource type="Texture2D" uid="uid://c34m4frbqt3wf" path="res://assets/9Panel_Scren.png" id="3_ss4ib"]
 [ext_resource type="StyleBox" uid="uid://c6q4p7rmq7w" path="res://presets/button_leaderboard_base_style.tres" id="5_qk7a2"]
-[ext_resource type="Texture2D" uid="uid://h36xxh2snj2" path="res://assets/home_icon.png" id="6_qk7a2"]
 [ext_resource type="Texture2D" uid="uid://c7or5lffcn12q" path="res://assets/9Panel_BlueAltSm.png" id="6_qogen"]
 [ext_resource type="Texture2D" uid="uid://y8t1vjradlti" path="res://assets/hbreak.png" id="6_ss4ib"]
+[ext_resource type="Texture2D" uid="uid://7mkl517o2m2" path="res://assets/BlueTooltip.png" id="10_vyrnl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1831"]
-texture = ExtResource("1_b6xng")
-texture_margin_left = 40.0
-texture_margin_top = 40.0
-texture_margin_right = 40.0
-texture_margin_bottom = 40.0
+texture = ExtResource("3_ss4ib")
+texture_margin_left = 50.0
+texture_margin_top = 50.0
+texture_margin_right = 50.0
+texture_margin_bottom = 60.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_x3ryb"]
 font = ExtResource("2_1epml")
@@ -84,6 +84,18 @@ texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gad2b"]
+texture = ExtResource("10_vyrnl")
+texture_margin_left = 6.0
+texture_margin_top = 5.0
+texture_margin_right = 6.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwg51"]
+font = ExtResource("2_1epml")
+font_size = 20
+font_color = Color(0.662745, 0.764706, 0.811765, 1)
+
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -109,9 +121,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -534.0
-offset_top = -300.0
+offset_top = -306.0
 offset_right = 534.0
-offset_bottom = 300.0
+offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q1831")
@@ -268,22 +280,27 @@ label_settings = SubResource("LabelSettings_xufgr")
 [node name="Home" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 913.0
+offset_left = 837.0
 offset_top = 64.0
-offset_right = 965.0
+offset_right = 937.0
 offset_bottom = 116.0
+theme_override_colors/font_hover_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_colors/font_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_colors/font_pressed_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_fonts/font = ExtResource("2_1epml")
+theme_override_font_sizes/font_size = 25
 theme_override_styles/focus = SubResource("StyleBoxEmpty_qk7a2")
 theme_override_styles/hover = SubResource("StyleBoxTexture_qogen")
 theme_override_styles/pressed = ExtResource("5_qk7a2")
 theme_override_styles/normal = ExtResource("5_qk7a2")
-icon = ExtResource("6_qk7a2")
+text = "Home"
 
 [node name="NewRun" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 990.0
+offset_left = 961.0
 offset_top = 64.0
-offset_right = 1042.0
+offset_right = 1061.0
 offset_bottom = 116.0
 theme_override_colors/font_hover_color = Color(0.231373, 0.533333, 0.611765, 1)
 theme_override_colors/font_color = Color(0.231373, 0.533333, 0.611765, 1)
@@ -296,3 +313,69 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_db5xh")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ss4ib")
 theme_override_styles/normal = SubResource("StyleBoxTexture_vyrnl")
 text = "New"
+
+[node name="Tooltips" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Difficulty" type="PanelContainer" parent="Tooltips"]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 103.0
+offset_right = 619.0
+offset_bottom = 156.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltips/Difficulty"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="Tooltips/Difficulty/MarginContainer"]
+layout_mode = 2
+text = "Difficulty Reached"
+label_settings = SubResource("LabelSettings_mwg51")
+horizontal_alignment = 1
+
+[node name="WordsCompleted" type="PanelContainer" parent="Tooltips"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 103.0
+offset_right = 726.0
+offset_bottom = 156.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltips/WordsCompleted"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="Tooltips/WordsCompleted/MarginContainer"]
+layout_mode = 2
+text = "Words Completed"
+label_settings = SubResource("LabelSettings_mwg51")
+horizontal_alignment = 1
+
+[node name="WordsInFire" type="PanelContainer" parent="Tooltips"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 103.0
+offset_right = 726.0
+offset_bottom = 156.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltips/WordsInFire"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="Tooltips/WordsInFire/MarginContainer"]
+layout_mode = 2
+text = "Words Completed"
+label_settings = SubResource("LabelSettings_mwg51")
+horizontal_alignment = 1
