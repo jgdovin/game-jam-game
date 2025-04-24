@@ -10,7 +10,7 @@ func _ready() -> void:
 	Game.word_completed.connect(_on_word_completed)
 
 func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
-	text = Game.input_buffer
+	text = Game.state.input_buffer
 
 func _on_typo(typos_made: int) -> void:
 	text = ""

@@ -16,8 +16,8 @@ func _ready() -> void:
 	add_to_group("words")
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = randi()
-	word_length = rng.randi_range(Game.difficulty + 2, Game.difficulty + 4)
-	word_text = Game.get_random_word(word_length)
+	word_length = rng.randi_range(Game.state.difficulty + 2, Game.state.difficulty + 4)
+	word_text = WordsManager.get_random_word(word_length)
 	Game.add_word_to_active(word_text)
 	Game.letter_typed.connect(_on_letter_typed)
 	label.text = word_text
@@ -38,7 +38,7 @@ func _ready() -> void:
 
 
 func _on_letter_typed(_letter: String, _is_valid: bool) -> void:
-	var buffer = Game.input_buffer.to_lower()
+	var buffer = Game.state.input_buffer.to_lower()
 	if word_text.begins_with(buffer):
 		var spaces = " ".repeat(word_text.length() - buffer.length())
 		highlight_label.text = buffer + spaces
@@ -53,7 +53,7 @@ func _physics_process(_delta: float) -> void:
 	if not is_on_floor:
 		return
 	
-	linear_velocity.x = -1 * SPEED - (Game.difficulty * 20)
+	linear_velocity.x = -1 * SPEED - (Game.state.difficulty * 20)
 
 func do_damage() -> void:
 	print("do damage")
@@ -61,8 +61,11 @@ func do_damage() -> void:
 	References.health.take_damage(word_text.length() * 3)
 	queue_free()
 
-func complete() -> void:
+func complete(word_to_complete: String) -> void:
+	if not word_to_complete.to_lower() == word_text.to_lower():
+		return
 	print("Word completed: ", word_text)
+	Game.word_completed.emit(word_text)
 	queue_free()
 
 func _on_game_ended() -> void:

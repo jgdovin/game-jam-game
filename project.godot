@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 References="*res://autoloads/references.gd"
+WordsManager="*res://autoloads/words_manager.gd"
 Game="*res://autoloads/game.gd"
 SoundManager="*res://autoloads/sound_manager/sound_manager.tscn"
 Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
@@ -25,7 +26,6 @@ PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
