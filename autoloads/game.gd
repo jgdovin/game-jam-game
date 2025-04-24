@@ -67,6 +67,10 @@ func increase_score(amount: int) -> void:
 	state.current_score += amount
 	score_changed.emit(state.current_score)
 
+func decrease_score(amount: int) -> void:
+	state.current_score -= amount
+	score_changed.emit(state.current_score)
+
 func start_typo_mode() -> void:
 	state.typo_mode = true
 	typo_mode_started.emit()

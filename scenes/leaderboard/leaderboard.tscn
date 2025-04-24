@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=27 format=3 uid="uid://bpm3lgy15lb3l"]
 
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
