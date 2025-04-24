@@ -35,7 +35,6 @@ func _init(pool_bus: String = DefaultBus, pool_volume: float = DefaultVolume, po
   _tick_timer.one_shot = false
   _tick_timer.timeout.connect(_on_tick)
   add_child(_tick_timer)
-  _tick_timer.start()
 
 ## _stab plays an audio stream immediately 
 ## and returns the player to the pool when finished
