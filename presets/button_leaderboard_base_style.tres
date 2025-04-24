@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c6q4p7rmq7w"]
+
+[ext_resource type="Texture2D" uid="uid://c7or5lffcn12q" path="res://assets/9Panel_BlueAltSm.png" id="1_bqx1c"]
+
+[resource]
+texture = ExtResource("1_bqx1c")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0

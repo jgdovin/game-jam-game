@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=23 format=3 uid="uid://bpm3lgy15lb3l"]
 
 [ext_resource type="Texture2D" uid="uid://cpq3sfy8wg3he" path="res://assets/9Panel_BlueAlt.png" id="1_b6xng"]
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
+[ext_resource type="Texture2D" uid="uid://g16x5enmi5i6" path="res://assets/ScaffoldOrange_Dark.png" id="2_db5xh"]
 [ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="2_q1831"]
+[ext_resource type="StyleBox" uid="uid://c6q4p7rmq7w" path="res://presets/button_leaderboard_base_style.tres" id="5_qk7a2"]
+[ext_resource type="Texture2D" uid="uid://h36xxh2snj2" path="res://assets/home_icon.png" id="6_qk7a2"]
+[ext_resource type="Texture2D" uid="uid://c7or5lffcn12q" path="res://assets/9Panel_BlueAltSm.png" id="6_qogen"]
+[ext_resource type="Texture2D" uid="uid://y8t1vjradlti" path="res://assets/hbreak.png" id="6_ss4ib"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1831"]
 texture = ExtResource("1_b6xng")
@@ -22,6 +27,13 @@ font = ExtResource("2_1epml")
 font_size = 20
 font_color = Color(0.231373, 0.533333, 0.611765, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_db5xh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qk7a2"]
+font = ExtResource("2_1epml")
+font_size = 30
+font_color = Color(0.121569, 0.168627, 0.247059, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_frobq"]
 font = ExtResource("2_1epml")
 font_size = 66
@@ -32,6 +44,46 @@ font = ExtResource("2_1epml")
 font_size = 56
 font_color = Color(0.231373, 0.533333, 0.611765, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qk7a2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qogen"]
+texture = ExtResource("6_qogen")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qogen"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_db5xh"]
+texture = ExtResource("6_qogen")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ss4ib"]
+texture = ExtResource("6_qogen")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vyrnl"]
+texture = ExtResource("6_qogen")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -41,13 +93,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x3ryb")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_repeat = 2
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_db5xh")
+stretch_mode = 1
+
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -534.0
+offset_top = -300.0
+offset_right = 534.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q1831")
@@ -138,6 +202,38 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 5
 
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_db5xh")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_ss4ib")
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "YOU"
+label_settings = SubResource("LabelSettings_qk7a2")
+horizontal_alignment = 1
+
+[node name="PlayerScore" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="Loading" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -167,3 +263,35 @@ offset_bottom = 136.0
 grow_horizontal = 2
 text = "Leaderboard"
 label_settings = SubResource("LabelSettings_xufgr")
+
+[node name="Home" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 913.0
+offset_top = 64.0
+offset_right = 965.0
+offset_bottom = 116.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qk7a2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qogen")
+theme_override_styles/pressed = ExtResource("5_qk7a2")
+theme_override_styles/normal = ExtResource("5_qk7a2")
+icon = ExtResource("6_qk7a2")
+
+[node name="NewRun" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 990.0
+offset_top = 64.0
+offset_right = 1042.0
+offset_bottom = 116.0
+theme_override_colors/font_hover_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_colors/font_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_colors/font_focus_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_colors/font_pressed_color = Color(0.231373, 0.533333, 0.611765, 1)
+theme_override_fonts/font = ExtResource("2_1epml")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qogen")
+theme_override_styles/hover = SubResource("StyleBoxTexture_db5xh")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ss4ib")
+theme_override_styles/normal = SubResource("StyleBoxTexture_vyrnl")
+text = "New"

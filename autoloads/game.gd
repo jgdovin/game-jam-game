@@ -46,7 +46,7 @@ func _ready():
 		player_emojis += emojis[randi() % emojis.size()]
 	emojis_updated.emit(player_emojis)
 	typo_mode_started.connect(_on_typo_mode_started)
-
+	
 func _on_typo_mode_started() -> void:
 	typo_modes_triggered += 1
 
@@ -83,7 +83,7 @@ func _reset_game_state() -> void:
 
 func end_game() -> void:
 	game_active = false
-	References.game_controller.load_summary()
+	References.game_controller.load_leaderboard()
 	await Leaderboards.post_guest_score(References.quiver_leaderboard_id, Game.current_score, player_emojis, {"difficulty": Game.difficulty, "words_completed": Game.words_completed, "words_lost": Game.words_in_fire, "typos_made": Game.typos_made, "typo_modes_triggered": Game.typo_modes_triggered})
 	game_ended.emit()
 
