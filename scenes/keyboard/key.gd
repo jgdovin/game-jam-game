@@ -12,9 +12,13 @@ func _ready() -> void:
 	Game.letter_typed.connect(_on_letter_typed)
 
 func _on_letter_typed(letter: String, is_valid: bool) -> void:
-
 	if is_valid:
 		self_modulate = Color(0, 1, 0, 1)
+		var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+		if rng.randi_range(0, 1) == 0:
+			SFXPool.stab_random_pitch("key_1", 1.0, 0.5, 1.5)
+		else:
+			SFXPool.stab_random_Speed("key_2", 1.0, 0.5, 1.5)
 	else:
 		self_modulate = Color(1, 0, 0, 1)
 
@@ -22,7 +26,7 @@ func _on_letter_typed(letter: String, is_valid: bool) -> void:
 		visible = true
 		await get_tree().create_timer(0.4).timeout
 		visible = false
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

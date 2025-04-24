@@ -44,6 +44,22 @@ func _stab(_s: AudioStream, _b: String = DefaultBus, _v: float = DefaultVolume) 
   player.volume_db = linear_to_db(_v)
   player.play()
 
+## _stab_random_Speed plays an audio stream immediately
+## with a random speed within the given range
+func _stab_random_Speed(_s: AudioStream, _b: String = DefaultBus, _v: float = DefaultVolume, _min_speed: float = 0.5, _max_speed: float = 1.5) -> void:
+  var player: AudioStreamPlayerPooling = acquire(_s, _b)
+  player.volume_db = linear_to_db(_v)
+  player.pitch_scale = randf_range(_min_speed, _max_speed)
+  player.play()
+
+# _stab_random_pitch plays an audio stream immediately
+# with a random pitch within the given range
+func _stab_random_pitch(_s: AudioStream, _b: String = DefaultBus, _v: float = DefaultVolume, _min_pitch: float = 0.5, _max_pitch: float = 1.5) -> void:
+  var player: AudioStreamPlayerPooling = acquire(_s, _b)
+  player.volume_db = linear_to_db(_v)
+  player.pitch_scale = randf_range(_min_pitch, _max_pitch)
+  player.play()
+
 
 ## Acquire a player from the pool and set its stream and bus
 func acquire(_s: AudioStream, _b: String = DefaultBus) -> AudioStreamPlayerPooling:

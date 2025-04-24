@@ -36,7 +36,8 @@ func _on_word_fell_in_fire(word: String) -> void:
 
 func _on_word_completed(word: String) -> void:
 	Game.increase_score(word.length() * 3)
-	SoundManager.play_completed()
+	#SoundManager.play_completed()
+	SFXPool.stab("key_space")
 	var new_success_particles = success_particles.duplicate()
 	new_success_particles.emitting = true
 	add_child(new_success_particles)
