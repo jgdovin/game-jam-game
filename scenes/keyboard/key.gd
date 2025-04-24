@@ -26,8 +26,3 @@ func _on_letter_typed(letter: String, is_valid: bool) -> void:
 		visible = true
 		await get_tree().create_timer(0.4).timeout
 		visible = false
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

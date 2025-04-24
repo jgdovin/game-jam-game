@@ -26,7 +26,6 @@ func _on_credits_pressed() -> void:
 
 func _on_start_pressed() -> void:
 	References.game_controller.load_factory()
-	Game.start_game()
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()

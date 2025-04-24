@@ -14,6 +14,7 @@ func _ready() -> void:
 	value = current_health
 
 func take_damage(amount: int) -> void:
+	Game.damage_taken.emit()
 	current_health -= amount
 	value = current_health
 	health_changed.emit(current_health)

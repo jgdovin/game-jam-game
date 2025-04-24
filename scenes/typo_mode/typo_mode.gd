@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	progress_bar.value = current_progress
 
 func _input(event: InputEvent):
-	if not Game.typo_mode:
+	if not Game.state.typo_mode:
 		return
 	if event is InputEventKey and event.pressed and !event.echo:
 		print("event.keycode: ", event.keycode)

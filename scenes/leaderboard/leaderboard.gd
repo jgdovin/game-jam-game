@@ -22,7 +22,7 @@ var scores: Dictionary
 func _ready() -> void:
 	_setup_signals()
 
-	if Game.current_score:
+	if Game.state.current_score:
 		_show_player_score()
 		game_over_label.visible = true
 		new_run_button.text = "Retry"
@@ -40,12 +40,12 @@ func _ready() -> void:
 
 func _show_player_score() -> void:
 	var score_instance = score_line.instantiate()
-	score_instance.data = {"name": Game.player_emojis, "score": Game.current_score, "timestamp": Time.get_datetime_string_from_system(false, true), "metadata": {"difficulty": Game.difficulty, "words_completed": Game.words_completed, "words_lost": Game.words_in_fire, "typos_made": Game.typos_made, "typo_modes_triggered": Game.typo_modes_triggered}, "is_current_player": true}
+	score_instance.data = {"name": Game.player_emojis, "score": Game.state.current_score, "timestamp": Time.get_datetime_string_from_system(false, true), "metadata": {"difficulty": Game.state.difficulty, "words_completed": Game.state.words_completed, "words_lost": Game.state.words_in_fire, "typos_made": Game.state.typos_made, "typo_modes_triggered": Game.state.typo_modes_triggered}, "is_current_player": true}
 	player_score.add_child(score_instance)
 
 func _on_home_pressed() -> void:
 	References.game_controller.load_main_menu()
-	Game.clear_game_state()
+	Game.reset_game_state()
 
 func _on_new_run_pressed() -> void:
 	References.game_controller.load_factory()

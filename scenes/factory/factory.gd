@@ -4,26 +4,26 @@ extends Node2D
 @onready var word_spawn_point: Node2D = $WordSpawnPoint
 @onready var timer: Timer = $Timer
 
-@onready var emojis_label: Label = %PlayerEmojis
 @onready var failure_particles: CPUParticles2D = $UI/CurrentTyping/FailureParticles
 @onready var success_particles: CPUParticles2D = $UI/CurrentTyping/SuccessParticles
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SoundManager.play_game_music()
+	Game.start_game()
 	timer.timeout.connect(_on_timer_timeout)
 
 	Game.word_completed.connect(_on_word_completed)
 	Game.typo.connect(_on_typo)
 	Game.word_fell_in_fire.connect(_on_word_fell_in_fire)
 	Game.emojis_updated.connect(_on_emojis_updated)
-	emojis_label.text = Game.player_emojis
+	_on_timer_timeout()
 
 func _on_emojis_updated(emojis: String) -> void:
-	emojis_label.text = emojis
+	pass
 
-func _on_typo(typos_made: int) -> void:
+func _on_typo(_typos_made: int) -> void:
 	SFXPool.stab_random_pitch("typo", 1.0, 0.75, 1.25)
-	Game.decrease_score(1)
 	var new_failure_particles = failure_particles.duplicate()
 	new_failure_particles.emitting = true
 	add_child(new_failure_particles)
@@ -44,7 +44,7 @@ func _on_word_completed(word: String) -> void:
 	new_success_particles.queue_free()
 
 func _on_timer_timeout() -> void:
-	if not Game.game_active:
+	if not Game.state.game_active:
 		return
 	var word = word_scene.instantiate()
 	word.position = word_spawn_point.position
