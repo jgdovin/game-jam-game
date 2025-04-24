@@ -38,12 +38,12 @@ func stab(_n: String, _v: float = DefaultVolume) -> void:
 
 ## stab_random_Speed plays an audio stream immediately
 ## with a random speed within the given range
-func stab_random_Speed(_n: String, _v: float = DefaultVolume, _min_speed: float = 0.5, _max_speed: float = 1.5) -> void:
+func stab_random_speed(_n: String, _v: float = DefaultVolume, _min_speed: float = 0.5, _max_speed: float = 1.5) -> void:
   var stream: AudioStream = retrieve_stream(_n)
   if stream == null:
     return
 
-  _stab_random_Speed(stream, bank.BankBus, _v, _min_speed, _max_speed)
+  _stab_random_speed(stream, bank.BankBus, _v, _min_speed, _max_speed)
 
 ## stab_random_pitch plays an audio stream immediately
 ## with a random pitch within the given range

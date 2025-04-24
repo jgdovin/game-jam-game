@@ -45,7 +45,7 @@ func _stab(_s: AudioStream, _b: String = DefaultBus, _v: float = DefaultVolume) 
 
 ## _stab_random_Speed plays an audio stream immediately
 ## with a random speed within the given range
-func _stab_random_Speed(_s: AudioStream, _b: String = DefaultBus, _v: float = DefaultVolume, _min_speed: float = 0.5, _max_speed: float = 1.5) -> void:
+func _stab_random_speed(_s: AudioStream, _b: String = DefaultBus, _v: float = DefaultVolume, _min_speed: float = 0.5, _max_speed: float = 1.5) -> void:
   var player: AudioStreamPlayerPooling = acquire(_s, _b)
   player.volume_db = linear_to_db(_v)
   player.pitch_scale = randf_range(_min_speed, _max_speed)

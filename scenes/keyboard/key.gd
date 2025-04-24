@@ -15,10 +15,10 @@ func _on_letter_typed(letter: String, is_valid: bool) -> void:
 	if is_valid:
 		self_modulate = Color(0, 1, 0, 1)
 		var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-		if rng.randi_range(0, 1) == 0:
-			SFXPool.stab_random_pitch("key_1", 1.0, 0.5, 1.5)
+		if rng.randf() < 0.5:
+			SFXPool.stab_random_pitch("key_1", 0.50, 0.75, 1.25)
 		else:
-			SFXPool.stab_random_Speed("key_2", 1.0, 0.5, 1.5)
+			SFXPool.stab_random_pitch("key_2", 0.50, 0.75, 1.25)
 	else:
 		self_modulate = Color(1, 0, 0, 1)
 
