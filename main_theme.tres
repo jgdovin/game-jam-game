@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=9 format=3 uid="uid://boarbiipirdws"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://boarbiipirdws"]
 
 [ext_resource type="Texture2D" uid="uid://c065ho38j3djp" path="res://assets/button_hover.png" id="1_0omi4"]
 [ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="1_58jnp"]
 [ext_resource type="Texture2D" uid="uid://dxnuri1ch0lfg" path="res://assets/button_normal.png" id="1_a2l2q"]
 [ext_resource type="Texture2D" uid="uid://cqfylhanhbpks" path="res://assets/button_pressed.png" id="2_0omi4"]
+[ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="5_466ly"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0omi4"]
 
@@ -49,4 +50,4 @@ Button/styles/hover = SubResource("StyleBoxTexture_52mx2")
 Button/styles/normal = SubResource("StyleBoxTexture_58jnp")
 Button/styles/pressed = SubResource("StyleBoxTexture_466ly")
 Label/colors/font_color = Color(0.831373, 0.356863, 0.0901961, 1)
-Label/fonts/font = ExtResource("1_58jnp")
+Label/fonts/font = ExtResource("5_466ly")

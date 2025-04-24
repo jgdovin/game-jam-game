@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=26 format=3 uid="uid://bpm3lgy15lb3l"]
 
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
 [ext_resource type="Texture2D" uid="uid://g16x5enmi5i6" path="res://assets/ScaffoldOrange_Dark.png" id="2_db5xh"]
 [ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="2_q1831"]
 [ext_resource type="Texture2D" uid="uid://c34m4frbqt3wf" path="res://assets/9Panel_Scren.png" id="3_ss4ib"]
-[ext_resource type="PackedScene" uid="uid://mj4wcr0vnuob" path="res://scenes/leaderboard/score_line.tscn" id="5_frobq"]
 [ext_resource type="StyleBox" uid="uid://c6q4p7rmq7w" path="res://presets/button_leaderboard_base_style.tres" id="5_qk7a2"]
 [ext_resource type="Texture2D" uid="uid://c7or5lffcn12q" path="res://assets/9Panel_BlueAltSm.png" id="6_qogen"]
 [ext_resource type="Texture2D" uid="uid://y8t1vjradlti" path="res://assets/hbreak.png" id="6_ss4ib"]
@@ -214,36 +213,6 @@ theme_override_constants/margin_top = 10
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 5
-
-[node name="ScoreLine" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine7" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine8" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine9" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
-
-[node name="ScoreLine10" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
-layout_mode = 2
 
 [node name="PlayerScoreContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
