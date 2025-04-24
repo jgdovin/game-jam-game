@@ -4,6 +4,9 @@ extends Node
 
 var words_by_length: Dictionary = {}
 
+func _ready():
+	load_words()
+
 func load_words():
 	var file = FileAccess.open("assets/words.txt", FileAccess.READ)
 	if not file:

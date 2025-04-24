@@ -61,7 +61,6 @@ func load_factory() -> void:
 	var factory_instance = factory.duplicate()
 	world_2d.add_child(factory_instance)
 	current_2d_scene = factory_instance
-	Game.start_game()
 
 func load_summary() -> void:
 	print("Loading summary")

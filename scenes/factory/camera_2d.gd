@@ -11,9 +11,13 @@ var max_trauma : float = 1.0
 func _ready() -> void:
 	randomize()
 	Game.damage_taken.connect(_on_damage_taken)
+	Game.typo.connect(_on_typo)
 
 func _on_damage_taken() -> void:
-	add_trauma(0.5)
+	add_trauma(0.6)
+
+func _on_typo(_typos_made: int) -> void:
+	add_trauma(0.3)
 
 func _process(delta: float) -> void:
 	if follow_node:

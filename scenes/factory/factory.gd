@@ -9,12 +9,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SoundManager.play_game_music()
+	Game.start_game()
 	timer.timeout.connect(_on_timer_timeout)
 
 	Game.word_completed.connect(_on_word_completed)
 	Game.typo.connect(_on_typo)
 	Game.word_fell_in_fire.connect(_on_word_fell_in_fire)
 	Game.emojis_updated.connect(_on_emojis_updated)
+	_on_timer_timeout()
 
 func _on_emojis_updated(emojis: String) -> void:
 	pass
@@ -40,7 +43,7 @@ func _on_word_completed(word: String) -> void:
 	new_success_particles.queue_free()
 
 func _on_timer_timeout() -> void:
-	if not Game.game_active:
+	if not Game.state.game_active:
 		return
 	var word = word_scene.instantiate()
 	word.position = word_spawn_point.position
