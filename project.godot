@@ -22,11 +22,16 @@ Game="*res://autoloads/game.gd"
 SoundManager="*res://autoloads/sound_manager/sound_manager.tscn"
 Leaderboards="*res://addons/quiver_leaderboards/leaderboards.tscn"
 PlayerAccounts="*res://addons/quiver_player_accounts/player_accounts.tscn"
+UIPool="*res://autoloads/qaudio/ui_pool.tscn"
 
 [display]
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
+
+[dotnet]
+
+project/assembly_name="Typing Factory"
 
 [editor_plugins]
 

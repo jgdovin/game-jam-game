@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cljd1s7ui0fx0"]
+[gd_scene load_steps=13 format=3 uid="uid://cljd1s7ui0fx0"]
 
 [ext_resource type="Script" uid="uid://caxsoxs3kb8b4" path="res://scenes/main_menu/main_menu.gd" id="1_l48gv"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="1_ytr4m"]
 [ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="2_ytr4m"]
 [ext_resource type="Theme" uid="uid://boarbiipirdws" path="res://main_theme.tres" id="4_l48gv"]
+[ext_resource type="Script" uid="uid://c0hmda2xktura" path="res://classes/qaudio/ButtonWithSound.gd" id="5_3ovsr"]
 [ext_resource type="Texture2D" uid="uid://cqfylhanhbpks" path="res://assets/button_pressed.png" id="5_ytr4m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ecwwl"]
@@ -147,6 +148,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
 text = "      START      "
+script = ExtResource("5_3ovsr")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="Options" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -154,7 +157,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
+disabled = true
 text = "    OPTIONS     "
+script = ExtResource("5_3ovsr")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="Leaderboard" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -163,6 +169,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
 text = "LEADERBOARD"
+script = ExtResource("5_3ovsr")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="Exit" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -171,6 +179,8 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
 text = "       EXIT        "
+script = ExtResource("5_3ovsr")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -188,6 +198,8 @@ offset_bottom = 610.0
 theme = ExtResource("4_l48gv")
 theme_override_font_sizes/font_size = 31
 text = "CREDITS"
+script = ExtResource("5_3ovsr")
+metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="CreditsPanel" type="Panel" parent="."]
 unique_name_in_owner = true
