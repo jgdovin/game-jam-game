@@ -17,10 +17,14 @@ func _ready() -> void:
 	Game.typo.connect(_on_typo)
 	Game.word_fell_in_fire.connect(_on_word_fell_in_fire)
 	Game.emojis_updated.connect(_on_emojis_updated)
+	Game.typo_grace.connect(_on_typo_grace)
 	_on_timer_timeout()
 
-func _on_emojis_updated(emojis: String) -> void:
+func _on_emojis_updated(_emojis: String) -> void:
 	pass
+
+func _on_typo_grace(_typos_made: int) -> void:
+	SFXPool.stab_random_pitch("typo_grace", 1.0, 0.75, 1.25)
 
 func _on_typo(_typos_made: int) -> void:
 	SFXPool.stab_random_pitch("typo", 1.0, 0.75, 1.25)

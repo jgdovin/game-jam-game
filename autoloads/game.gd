@@ -4,6 +4,7 @@ var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
 signal word_completed(word: String)
 signal partical_match_found(word: String)
 signal typo(typos_made: int)
+signal typo_grace(typos_made: int)
 signal word_fell_in_fire(word: String)
 signal letter_typed(letter: String, is_valid: bool)
 signal typo_mode_started()
@@ -16,6 +17,7 @@ signal difficulty_increased()
 signal emojis_updated(emojis: String)
 
 var default_state: Dictionary = {
+	"invulnerable": false,
 	"typo_mode": false,
 	"typos_made": 0,
 	"typo_modes_triggered": 0,
@@ -34,6 +36,7 @@ var default_state: Dictionary = {
 
 var state: Dictionary = default_state.duplicate()
 
+var invulnerable_time: float = 1.0
 var player_emojis: String = ""
 var max_streak: int = 0
 
@@ -53,7 +56,7 @@ func diff_formula(curr_difficulty: int) -> int:
 	return curr_difficulty * 2 + curr_difficulty
 
 func start_game() -> void:
-	_reset_game_state()
+	reset_game_state()
 	state.game_active = true
 	game_started.emit()
 
@@ -124,14 +127,14 @@ func _unhandled_input(event):
 
 # Private methods
 
-func _reset_game_state() -> void:
+func reset_game_state() -> void:
 	state = default_state.duplicate()
 
 func _is_word_matched(word_to_validate: String) -> bool:
 	for word in state.active_words:
 		print("Comparing input_buffer: '", state.input_buffer.to_lower(), "' with word: '", word.to_lower(), "'")
 		print("Word to validate length: ", word_to_validate.length(), " Word length: ", word.length())
-		
+
 		if state.input_buffer.to_lower() == word.to_lower():
 			return true
 	return false
@@ -143,11 +146,14 @@ func _has_partial_match(word_to_validate: String) -> bool:
 	return false
 
 func _typo_made() -> void:
-	state.difficulty_streak = 0
 	state.typos_made += 1
+	state.input_buffer = ""
+	if state.invulnerable:
+		typo_grace.emit(state.typos_made)
+		return
+	state.difficulty_streak = 0
 	typo.emit(state.typos_made)
 	print("No partial matches found")
-	state.input_buffer = ""
 
 # Signal handlers
 func _on_typo_mode_started() -> void:

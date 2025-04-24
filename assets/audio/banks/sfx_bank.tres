@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="AudioStreamBank" load_steps=8 format=3 uid="uid://c00jynuoyt2ca"]
+[gd_resource type="Resource" script_class="AudioStreamBank" load_steps=9 format=3 uid="uid://c00jynuoyt2ca"]
 
 [ext_resource type="AudioStream" uid="uid://cnh1bnytv3snn" path="res://assets/audio/keys/keystroke_1.wav" id="1_p7hxh"]
 [ext_resource type="AudioStream" uid="uid://irsydtoicsn" path="res://assets/audio/keys/keystroke_2.wav" id="2_eqhkw"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b2s8i2k1e78py" path="res://assets/audio/typo_break.wav" id="4_yystr"]
 [ext_resource type="AudioStream" uid="uid://cltpedmdlxyn7" path="res://assets/audio/typo_break_burn3.wav" id="5_mau2k"]
 [ext_resource type="AudioStream" uid="uid://b1a71n8kgxfd0" path="res://assets/gong-05.wav" id="6_oqmt8"]
+[ext_resource type="AudioStream" uid="uid://b0a54g81blglk" path="res://assets/audio/keys/keystroke_miss4.wav" id="7_mau2k"]
 
 [resource]
 script = ExtResource("3_p8a1o")
@@ -18,6 +19,7 @@ Bank = Dictionary[String, AudioStream]({
 "key_1": ExtResource("1_p7hxh"),
 "key_2": ExtResource("2_eqhkw"),
 "key_space": ExtResource("3_eqhkw"),
-"typo": ExtResource("4_yystr")
+"typo": ExtResource("4_yystr"),
+"typo_grace": ExtResource("7_mau2k")
 })
 metadata/_custom_type_script = "uid://5bsetoa1430d"

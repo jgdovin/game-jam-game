@@ -26,9 +26,3 @@ func _ready() -> void:
 		key_instance.curr_letter = row_3[i]
 		key_instance.position = keyboard_start_point.position + Vector2(i * 30 + 30, 66)
 		add_child(key_instance)
-		
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

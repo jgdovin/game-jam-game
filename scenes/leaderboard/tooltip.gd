@@ -20,7 +20,3 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	display.visible = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -12,10 +12,6 @@ extends Control
 
 @onready var game_over_label: Label = %GameOver
 
-@onready var difficulty_tooltip: Control = %DifficultyTooltip
-@onready var words_completed_tooltip: Control = %WordsCompletedTooltip
-@onready var words_lost_tooltip: Control = %WordsLostTooltip
-
 var scores: Dictionary
 
 # Called when the node enters the scene tree for the first time.
@@ -53,22 +49,3 @@ func _on_new_run_pressed() -> void:
 func _setup_signals() -> void:
 	home_button.pressed.connect(_on_home_pressed)
 	new_run_button.pressed.connect(_on_new_run_pressed)
-
-
-func _on_difficulty_label_mouse_entered() -> void:
-	difficulty_tooltip.visible = true
-
-func _on_words_completed_label_mouse_entered() -> void:
-	words_completed_tooltip.visible = true
-
-func _on_words_lost_label_mouse_entered() -> void:
-	words_lost_tooltip.visible = true
-
-func _on_difficulty_label_mouse_exited() -> void:
-	difficulty_tooltip.visible = false
-
-func _on_words_completed_label_mouse_exited() -> void:
-	words_completed_tooltip.visible = false
-
-func _on_words_lost_label_mouse_exited() -> void:
-	words_lost_tooltip.visible = false

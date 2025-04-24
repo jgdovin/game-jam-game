@@ -28,7 +28,7 @@ func load_leaderboard() -> void:
 		current_gui_scene.queue_free()
 		current_gui_scene = null
 	var leaderboard_instance = leaderboard_scene.instantiate()
-	gui.add_child(leaderboard_instance)
+	gui.call_deferred("add_child", leaderboard_instance)
 	current_gui_scene = leaderboard_instance
 
 func load_main_menu() -> void:

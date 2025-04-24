@@ -7,8 +7,7 @@ extends PanelContainer
 @onready var labels: Array = [x1, x2, x3]
 
 var typo_count: int = 0
-var invulnerable: bool = false
-var invulnerable_time: float = 1.0
+
 
 func _ready() -> void:
 	Game.typo.connect(_on_typo)
@@ -16,18 +15,19 @@ func _ready() -> void:
 	for label in labels:
 		label.self_modulate = Color(.286, .384, .431, 1)
 
-func _on_typo(typos_made: int) -> void:
-	if invulnerable:
+func _on_typo(_typos_made: int) -> void:
+	if Game.state.invulnerable:
 		return
 	typo_count += 1
 	_update_typo_display()
 	if typo_count >= 3:
 		Game.start_typo_mode()
 	else:
-		invulnerable = true
-		await get_tree().create_timer(invulnerable_time).timeout
-		invulnerable = false
-
+		Game.state.invulnerable = true
+		print("invulnerable: ", Game.state.invulnerable)
+		await get_tree().create_timer(Game.invulnerable_time).timeout
+		Game.state.invulnerable = false
+		print("invulnerable: ", Game.state.invulnerable)
 func _on_typo_mode_ended() -> void:
 	typo_count = 0
 	_update_typo_display()
