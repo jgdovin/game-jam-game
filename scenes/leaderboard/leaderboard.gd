@@ -45,7 +45,7 @@ func _show_player_score() -> void:
 
 func _on_home_pressed() -> void:
 	References.game_controller.load_main_menu()
-	Game.clear_game_state()
+	Game.reset_game_state()
 
 func _on_new_run_pressed() -> void:
 	References.game_controller.load_factory()

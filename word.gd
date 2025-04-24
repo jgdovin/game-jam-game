@@ -61,8 +61,11 @@ func do_damage() -> void:
 	References.health.take_damage(word_text.length() * 3)
 	queue_free()
 
-func complete() -> void:
+func complete(word_to_complete: String) -> void:
+	if not word_to_complete == word_text:
+		return
 	print("Word completed: ", word_text)
+	Game.word_completed.emit(word_text)
 	queue_free()
 
 func _on_game_ended() -> void:
