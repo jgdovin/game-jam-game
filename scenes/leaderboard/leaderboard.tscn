@@ -1,14 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=27 format=3 uid="uid://bpm3lgy15lb3l"]
 
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
 [ext_resource type="Texture2D" uid="uid://g16x5enmi5i6" path="res://assets/ScaffoldOrange_Dark.png" id="2_db5xh"]
 [ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="2_q1831"]
 [ext_resource type="Texture2D" uid="uid://c34m4frbqt3wf" path="res://assets/9Panel_Scren.png" id="3_ss4ib"]
+[ext_resource type="PackedScene" uid="uid://mj4wcr0vnuob" path="res://scenes/leaderboard/score_line.tscn" id="5_frobq"]
 [ext_resource type="StyleBox" uid="uid://c6q4p7rmq7w" path="res://presets/button_leaderboard_base_style.tres" id="5_qk7a2"]
 [ext_resource type="Texture2D" uid="uid://c7or5lffcn12q" path="res://assets/9Panel_BlueAltSm.png" id="6_qogen"]
 [ext_resource type="Texture2D" uid="uid://y8t1vjradlti" path="res://assets/hbreak.png" id="6_ss4ib"]
-[ext_resource type="Texture2D" uid="uid://7mkl517o2m2" path="res://assets/BlueTooltip.png" id="10_vyrnl"]
+[ext_resource type="PackedScene" uid="uid://cr47d8yp6g8ng" path="res://scenes/leaderboard/tooltip.tscn" id="9_db5xh"]
+[ext_resource type="Texture2D" uid="uid://bqeprwunid7lc" path="res://assets/InfoIcon.png" id="10_ss4ib"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1831"]
 texture = ExtResource("3_ss4ib")
@@ -84,17 +86,12 @@ texture_margin_top = 10.0
 texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gad2b"]
-texture = ExtResource("10_vyrnl")
-texture_margin_left = 6.0
-texture_margin_top = 5.0
-texture_margin_right = 6.0
-texture_margin_bottom = 5.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_ss4ib"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_mwg51"]
-font = ExtResource("2_1epml")
-font_size = 20
-font_color = Color(0.662745, 0.764706, 0.811765, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_ss4ib"]
+font_size = 56
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -103,6 +100,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_x3ryb")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -110,6 +108,7 @@ texture_repeat = 2
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
+mouse_filter = 2
 texture = ExtResource("2_db5xh")
 stretch_mode = 1
 
@@ -126,10 +125,12 @@ offset_right = 534.0
 offset_bottom = 324.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_q1831")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_top = 110
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
@@ -164,21 +165,21 @@ text = "Score"
 label_settings = ExtResource("2_q1831")
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="DifficultyLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "Dif."
 label_settings = ExtResource("2_q1831")
 horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="CompletedWordLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
-text = "W. Comp"
+text = "W. Comp."
 label_settings = ExtResource("2_q1831")
 horizontal_alignment = 1
 
-[node name="Label5" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+[node name="LostWordLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 text = "W. Lost"
@@ -213,6 +214,36 @@ theme_override_constants/margin_top = 10
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 5
+
+[node name="ScoreLine" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine2" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine3" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine4" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine5" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine7" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine8" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine9" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
+
+[node name="ScoreLine10" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/ScoreHolder" instance=ExtResource("5_frobq")]
+layout_mode = 2
 
 [node name="PlayerScoreContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -315,67 +346,55 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_vyrnl")
 text = "New"
 
 [node name="Tooltips" type="Control" parent="."]
-visible = false
+unique_name_in_owner = true
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Difficulty" type="PanelContainer" parent="Tooltips"]
+[node name="InfoIcon" type="Sprite2D" parent="Tooltips"]
+position = Vector2(529, 170)
+texture = ExtResource("10_ss4ib")
+
+[node name="InfoIcon2" type="Sprite2D" parent="Tooltips"]
+position = Vector2(665, 170)
+texture = ExtResource("10_ss4ib")
+
+[node name="InfoIcon3" type="Sprite2D" parent="Tooltips"]
+position = Vector2(799, 170)
+texture = ExtResource("10_ss4ib")
+
+[node name="Tooltip" parent="Tooltips" instance=ExtResource("9_db5xh")]
+position = Vector2(372, 104)
+label_text = "Difficulty"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tooltips/Tooltip"]
+position = Vector2(157, 66)
+shape = SubResource("CircleShape2D_ss4ib")
+
+[node name="Tooltip2" parent="Tooltips" instance=ExtResource("9_db5xh")]
+position = Vector2(474, 104)
+label_text = "Words Completed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tooltips/Tooltip2"]
+position = Vector2(190, 66)
+shape = SubResource("CircleShape2D_ss4ib")
+
+[node name="Tooltip3" parent="Tooltips" instance=ExtResource("9_db5xh")]
+position = Vector2(608, 104)
+label_text = "Words Lost In Fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tooltips/Tooltip3"]
+position = Vector2(190, 66)
+shape = SubResource("CircleShape2D_ss4ib")
+
+[node name="GameOver" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
 layout_mode = 0
-offset_left = 356.0
-offset_top = 103.0
-offset_right = 619.0
-offset_bottom = 156.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
-
-[node name="MarginContainer" type="MarginContainer" parent="Tooltips/Difficulty"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 5
-
-[node name="Label" type="Label" parent="Tooltips/Difficulty/MarginContainer"]
-layout_mode = 2
-text = "Difficulty Reached"
-label_settings = SubResource("LabelSettings_mwg51")
-horizontal_alignment = 1
-
-[node name="WordsCompleted" type="PanelContainer" parent="Tooltips"]
-layout_mode = 0
-offset_left = 463.0
-offset_top = 103.0
-offset_right = 726.0
-offset_bottom = 156.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
-
-[node name="MarginContainer" type="MarginContainer" parent="Tooltips/WordsCompleted"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 5
-
-[node name="Label" type="Label" parent="Tooltips/WordsCompleted/MarginContainer"]
-layout_mode = 2
-text = "Words Completed"
-label_settings = SubResource("LabelSettings_mwg51")
-horizontal_alignment = 1
-
-[node name="WordsInFire" type="PanelContainer" parent="Tooltips"]
-layout_mode = 0
-offset_left = 463.0
-offset_top = 103.0
-offset_right = 726.0
-offset_bottom = 156.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
-
-[node name="MarginContainer" type="MarginContainer" parent="Tooltips/WordsInFire"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 5
-
-[node name="Label" type="Label" parent="Tooltips/WordsInFire/MarginContainer"]
-layout_mode = 2
-text = "Words Completed"
-label_settings = SubResource("LabelSettings_mwg51")
-horizontal_alignment = 1
+offset_left = 31.0
+offset_top = 143.0
+offset_right = 263.0
+offset_bottom = 199.0
+rotation = -0.523598
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_ss4ib")

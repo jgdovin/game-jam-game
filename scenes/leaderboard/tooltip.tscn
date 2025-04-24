@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr47d8yp6g8ng"]
+
+[ext_resource type="Texture2D" uid="uid://7mkl517o2m2" path="res://assets/BlueTooltip.png" id="1_6c38t"]
+[ext_resource type="Script" uid="uid://iy7mdqlr3ida" path="res://scenes/leaderboard/tooltip.gd" id="1_rtqjv"]
+[ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_rtqjv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gad2b"]
+texture = ExtResource("1_6c38t")
+texture_margin_left = 6.0
+texture_margin_top = 5.0
+texture_margin_right = 6.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_mwg51"]
+font = ExtResource("2_rtqjv")
+font_size = 20
+font_color = Color(0.662745, 0.764706, 0.811765, 1)
+
+[node name="Tooltip" type="Area2D"]
+script = ExtResource("1_rtqjv")
+
+[node name="Display" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+offset_right = 263.0
+offset_bottom = 53.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")
+
+[node name="MarginContainer" type="MarginContainer" parent="Display"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 5
+
+[node name="Label" type="Label" parent="Display/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Difficulty Reached"
+label_settings = SubResource("LabelSettings_mwg51")
+horizontal_alignment = 1
