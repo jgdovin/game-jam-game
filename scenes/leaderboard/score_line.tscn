@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://mj4wcr0vnuob"]
+[gd_scene load_steps=6 format=3 uid="uid://mj4wcr0vnuob"]
 
 [ext_resource type="Script" uid="uid://b7gu3ia4hlwrn" path="res://scenes/leaderboard/score_line.gd" id="1_66oxc"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_xfb3c"]
 [ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="3_c1fqt"]
+[ext_resource type="PackedScene" uid="uid://dwe67bvrjm52a" path="res://scenes/player_emoji_display/emoji_display.tscn" id="3_xfb3c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1epml"]
 font = ExtResource("2_xfb3c")
@@ -18,11 +19,9 @@ layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_1epml")
 
-[node name="Icons" type="Label" parent="."]
+[node name="EmojiHolder" parent="." instance=ExtResource("3_xfb3c")]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "😀😀😀😀😀😀"
-label_settings = SubResource("LabelSettings_1epml")
 
 [node name="Score" type="Label" parent="."]
 custom_minimum_size = Vector2(100, 0)

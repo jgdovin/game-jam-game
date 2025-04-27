@@ -32,6 +32,7 @@ var default_state: Dictionary = {
 	"current_typing": "",
 	"input_buffer": "",
 	"active_words": [],
+	"game_over": false
 }
 
 var state: Dictionary = default_state.duplicate()
@@ -60,18 +61,16 @@ func start_game() -> void:
 	state.game_active = true
 	game_started.emit()
 
-func end_game() -> void:
-	state.game_active = false
+func end_game(submit_score: bool = true) -> void:
+	state.game_over = true
+	if submit_score:
+		await Leaderboards.post_guest_score(References.quiver_leaderboard_id, state.current_score, player_emojis, {"difficulty": state.difficulty, "words_completed": state.words_completed, "words_lost": state.words_in_fire, "typos_made": state.typos_made, "typo_modes_triggered": state.typo_modes_triggered})
 	References.game_controller.load_leaderboard()
-	await Leaderboards.post_guest_score(References.quiver_leaderboard_id, state.current_score, player_emojis, {"difficulty": state.difficulty, "words_completed": state.words_completed, "words_lost": state.words_in_fire, "typos_made": state.typos_made, "typo_modes_triggered": state.typo_modes_triggered})
+	state.game_active = false
 	game_ended.emit()
 
 func increase_score(amount: int) -> void:
 	state.current_score += amount
-	score_changed.emit(state.current_score)
-
-func decrease_score(amount: int) -> void:
-	state.current_score -= amount
 	score_changed.emit(state.current_score)
 
 func start_typo_mode() -> void:
@@ -89,6 +88,7 @@ func add_word_to_active(word: String) -> void:
 
 func remove_word_from_active(word: String) -> void:
 	var index = state.active_words.find(word)
+	print("Removing word from active: ", word, " at index: ", index)
 	if index != -1:
 		state.active_words.remove_at(index)
 		print("Removed word from active: ", word)
@@ -132,16 +132,13 @@ func reset_game_state() -> void:
 
 func _is_word_matched(word_to_validate: String) -> bool:
 	for word in state.active_words:
-		print("Comparing input_buffer: '", state.input_buffer.to_lower(), "' with word: '", word.to_lower(), "'")
-		print("Word to validate length: ", word_to_validate.length(), " Word length: ", word.length())
-
-		if state.input_buffer.to_lower() == word.to_lower():
+		if word_to_validate == word:
 			return true
 	return false
 
 func _has_partial_match(word_to_validate: String) -> bool:
 	for word in state.active_words:
-		if word.to_lower().begins_with(word_to_validate.to_lower()):
+		if word.begins_with(word_to_validate):
 			return true
 	return false
 
@@ -176,3 +173,6 @@ func _on_word_completed(_word: String) -> void:
 func _on_word_fell_in_fire(_word: String) -> void:
 	state.words_in_fire += 1
 	state.difficulty_streak = 0
+	if not _has_partial_match(state.input_buffer):
+		print("No partial match, clearing input buffer")
+		state.input_buffer = ""

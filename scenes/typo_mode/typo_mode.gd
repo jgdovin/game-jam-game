@@ -13,11 +13,11 @@ func _ready() -> void:
 	Game.typo_mode_ended.connect(_on_typo_mode_ended)
 
 func _on_typo_mode_started() -> void:
+	visible = true
 	current_progress = 0.0
 	current_letter = alphabet[randi() % alphabet.size()]
 	sprite.texture = load("res://assets/Keyboard/%s.png" % current_letter)
 	SoundManager.play_typo_music()
-	visible = true
 
 func _on_typo_mode_ended() -> void:
 	visible = false
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	progress_bar.value = current_progress
 
 func _input(event: InputEvent):
-	if not Game.state.typo_mode:
+	if not Game.state.typo_mode or Game.state.game_over:
 		return
 	if event is InputEventKey and event.pressed and !event.echo:
 		print("event.keycode: ", event.keycode)

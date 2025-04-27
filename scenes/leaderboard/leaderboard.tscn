@@ -157,6 +157,7 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 text = "Player Icons"
 label_settings = SubResource("LabelSettings_1epml")
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -218,10 +219,12 @@ theme_override_constants/separation = 5
 [node name="PlayerScoreContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_db5xh")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/PlayerScoreContainer"]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
@@ -236,6 +239,7 @@ theme_override_constants/separation = 8
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/PlayerScoreContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 texture = ExtResource("6_ss4ib")
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/PlayerScoreContainer/MarginContainer/VBoxContainer/VBoxContainer"]

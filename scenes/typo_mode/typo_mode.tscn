@@ -63,6 +63,7 @@ offset_left = 192.0
 offset_top = -144.0
 offset_right = 229.0
 offset_bottom = 144.0
+mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_javqj")
 fill_mode = 3

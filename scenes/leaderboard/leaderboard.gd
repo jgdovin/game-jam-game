@@ -17,15 +17,16 @@ var scores: Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_setup_signals()
-
-	if Game.state.current_score:
+	Game.end_typo_mode()
+	if Game.state.game_over:
 		_show_player_score()
 		game_over_label.visible = true
 		new_run_button.text = "Retry"
+		Game.state.game_over = false
 	else:
 		player_score_container.visible = false
 
-	scores = await Leaderboards.get_player_scores(References.quiver_leaderboard_id)
+	scores = await Leaderboards.get_scores(References.quiver_leaderboard_id, 0, 50)
 	print("SCORES ", scores)
 	for score in scores.scores:
 		var score_instance = score_line.instantiate()

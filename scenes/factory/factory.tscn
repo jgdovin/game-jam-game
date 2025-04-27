@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=35 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="2_7v5iq"]
@@ -16,12 +16,9 @@
 [ext_resource type="AudioStream" uid="uid://duw11wyx04ub0" path="res://assets/audio/conveyer.wav" id="13_5pcoe"]
 [ext_resource type="Script" uid="uid://dbiqoqc0pcby1" path="res://scenes/stats/stats.gd" id="13_hg0jv"]
 [ext_resource type="FontFile" uid="uid://25vfhmal8viy" path="res://assets/fonts/Long_Shot.ttf" id="14_64w5n"]
+[ext_resource type="PackedScene" uid="uid://dwe67bvrjm52a" path="res://scenes/player_emoji_display/emoji_display.tscn" id="15_5kr2y"]
 [ext_resource type="Script" uid="uid://cnubg0hpocwk1" path="res://scenes/difficulty_label/difficulty_increased.gd" id="15_i4dya"]
-[ext_resource type="Texture2D" uid="uid://oqdchk32jk5a" path="res://assets/emojis/1.png" id="16_qrdmi"]
-[ext_resource type="Texture2D" uid="uid://cvref15p3sexv" path="res://assets/emojis/4.png" id="17_57o46"]
-[ext_resource type="Texture2D" uid="uid://c3bxwea4nrk4a" path="res://assets/emojis/13.png" id="18_h56bk"]
-[ext_resource type="Texture2D" uid="uid://c2qkphcmtl6fl" path="res://assets/emojis/28.png" id="19_a47qo"]
-[ext_resource type="Texture2D" uid="uid://kgq1v1v7khbi" path="res://assets/emojis/32.png" id="20_6xsq5"]
+[ext_resource type="PackedScene" uid="uid://bi0er1tc1balm" path="res://scenes/debug_overlay/debug_overlay.tscn" id="17_qrdmi"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -151,6 +148,7 @@ offset_top = -471.0
 offset_right = -153.0
 offset_bottom = -88.0
 scale = Vector2(4, 4)
+mouse_filter = 2
 texture = ExtResource("2_7v5iq")
 stretch_mode = 1
 
@@ -160,7 +158,7 @@ libraries = {
 }
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 autostart = true
 
 [node name="WordSpawnPoint" type="Node2D" parent="."]
@@ -232,9 +230,9 @@ offset_left = 236.0
 offset_top = 413.0
 offset_right = 1152.0
 offset_bottom = 417.0
+base_health = 10
 
 [node name="TypoMode" parent="." instance=ExtResource("10_qrdmi")]
-visible = false
 z_index = 2
 position = Vector2(575, 322)
 
@@ -255,6 +253,7 @@ offset_top = 441.0
 offset_right = 465.0
 offset_bottom = 502.0
 scale = Vector2(4, 4)
+mouse_filter = 2
 texture = ExtResource("3_ggcq3")
 stretch_mode = 1
 
@@ -308,43 +307,8 @@ text = "Player"
 label_settings = SubResource("LabelSettings_bn8px")
 horizontal_alignment = 1
 
-[node name="EmojiHolder" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="EmojiHolder" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("15_5kr2y")]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/EmojiHolder"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("16_qrdmi")
-stretch_mode = 4
-
-[node name="TextureRect2" type="TextureRect" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/EmojiHolder"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("17_57o46")
-stretch_mode = 4
-
-[node name="TextureRect3" type="TextureRect" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/EmojiHolder"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("18_h56bk")
-stretch_mode = 4
-
-[node name="TextureRect4" type="TextureRect" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/EmojiHolder"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("19_a47qo")
-stretch_mode = 4
-
-[node name="TextureRect5" type="TextureRect" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/EmojiHolder"]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("20_6xsq5")
-stretch_mode = 4
 
 [node name="Score" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_7v5iq")]
 layout_mode = 2
@@ -440,6 +404,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_qrdmi")
+
+[node name="DebugOverlay" parent="UI" instance=ExtResource("17_qrdmi")]
 
 [node name="DifficultyIncreased" type="Label" parent="."]
 offset_left = 304.0

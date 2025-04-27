@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwe67bvrjm52a"]
+
+[ext_resource type="Script" uid="uid://ty61jbp3ag7i" path="res://scenes/player_emoji_display/emoji_display.gd" id="1_shisd"]
+[ext_resource type="Texture2D" uid="uid://oqdchk32jk5a" path="res://assets/emojis/1.png" id="2_skmqg"]
+
+[node name="EmojiHolder" type="HBoxContainer"]
+script = ExtResource("1_shisd")
+
+[node name="EmojiDisplayBase" type="TextureRect" parent="."]
+visible = false
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_skmqg")
+stretch_mode = 4
