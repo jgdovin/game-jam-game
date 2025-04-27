@@ -6,7 +6,7 @@
 [ext_resource type="Gradient" uid="uid://brtbjrjertm0" path="res://fire_particles_color_ramp.tres" id="4_wt3hl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
-size = Vector2(140.25, 90)
+size = Vector2(164.125, 90)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqgnc"]
 atlas = ExtResource("3_rhljx")
@@ -43,6 +43,7 @@ position = Vector2(1.33334, 31)
 scale = Vector2(0.333333, 0.333333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DespawnArea"]
+position = Vector2(-11.9376, 0)
 shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="FirePitBase2" type="Sprite2D" parent="."]

@@ -28,6 +28,8 @@ func load_words():
 	
 	file.close()
 	print("Loaded words: ", words_by_length.keys())
+	for length in words_by_length:
+		print("Length: ", length, " | Words: ", words_by_length[length].size())
 
 func get_random_word(length: int) -> String:
 	if not words_by_length.has(length):

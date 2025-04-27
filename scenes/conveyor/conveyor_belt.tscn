@@ -1,59 +1,26 @@
 [gd_scene load_steps=18 format=3 uid="uid://c3cre8gipu55t"]
 
-[ext_resource type="Script" uid="uid://b4v6yfgtxy1eh" path="res://scenes/conveyor/conveyor_belt.gd" id="1_4s1y3"]
 [ext_resource type="Texture2D" uid="uid://bqq58rj2t5jjx" path="res://assets/new_conveyor.png" id="1_35vht"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
-atlas = ExtResource("1_35vht")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mfdv2"]
-atlas = ExtResource("1_35vht")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iotsf"]
-atlas = ExtResource("1_35vht")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lc2xo"]
-atlas = ExtResource("1_35vht")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_215e1"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hve3p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mfdv2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iotsf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lc2xo")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="GDScript" id="GDScript_35vht"]
+script/source = "extends Node2D
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_35vht"]
 atlas = ExtResource("1_35vht")
-region = Rect2(0, 0, 32, 32)
+region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4s1y3"]
 atlas = ExtResource("1_35vht")
-region = Rect2(32, 0, 32, 32)
+region = Rect2(64, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4ae7"]
 atlas = ExtResource("1_35vht")
-region = Rect2(64, 0, 32, 32)
+region = Rect2(128, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_npsky"]
 atlas = ExtResource("1_35vht")
-region = Rect2(96, 0, 32, 32)
+region = Rect2(192, 0, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o8dhm"]
 animations = [{
@@ -75,36 +42,72 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e2o6t"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8dhm"]
 atlas = ExtResource("1_35vht")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(0, 32, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_feb5d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn71i"]
 atlas = ExtResource("1_35vht")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(64, 32, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fc0e3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmlst"]
 atlas = ExtResource("1_35vht")
-region = Rect2(64, 32, 32, 32)
+region = Rect2(128, 32, 64, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7jktm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp2dy"]
 atlas = ExtResource("1_35vht")
-region = Rect2(96, 32, 32, 32)
+region = Rect2(192, 32, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ryrav"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e2o6t")
+"texture": SubResource("AtlasTexture_o8dhm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_feb5d")
+"texture": SubResource("AtlasTexture_vn71i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fc0e3")
+"texture": SubResource("AtlasTexture_jmlst")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7jktm")
+"texture": SubResource("AtlasTexture_rp2dy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35dwa"]
+atlas = ExtResource("1_35vht")
+region = Rect2(0, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2hs8"]
+atlas = ExtResource("1_35vht")
+region = Rect2(64, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp2yn"]
+atlas = ExtResource("1_35vht")
+region = Rect2(128, 64, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2qbh"]
+atlas = ExtResource("1_35vht")
+region = Rect2(192, 64, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_22llt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35dwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2hs8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp2yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2qbh")
 }],
 "loop": true,
 "name": &"default",
@@ -112,12 +115,7 @@ animations = [{
 }]
 
 [node name="ConveyorBelt" type="Node2D"]
-script = ExtResource("1_4s1y3")
-
-[node name="BaseEnd" type="AnimatedSprite2D" parent="."]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_215e1")
-autoplay = "default"
+script = SubResource("GDScript_35vht")
 
 [node name="Base" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -128,5 +126,10 @@ autoplay = "default"
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ryrav")
 autoplay = "default"
-frame = 1
 frame_progress = 0.0301346
+
+[node name="Light" type="AnimatedSprite2D" parent="."]
+position = Vector2(31, 6)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_22llt")
+autoplay = "default"

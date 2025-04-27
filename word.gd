@@ -1,6 +1,10 @@
 extends RigidBody2D
 class_name Word
 
+# TODO: update when we expand word list
+var max_word_length: int = 10
+var max_word_speed: int = -300
+
 var word_length: int = 3
 var word_text: String = ""
 
@@ -16,7 +20,10 @@ func _ready() -> void:
 	add_to_group("words")
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 	rng.seed = randi()
-	word_length = rng.randi_range(Game.state.difficulty + 2, Game.state.difficulty + 4)
+	var lower_bound: int = min(Game.state.difficulty + 2, max_word_length)
+	var upper_bound: int = min(Game.state.difficulty + 4, max_word_length)
+	print("Lower bound: ", lower_bound, " | Upper bound: ", upper_bound)
+	word_length = rng.randi_range(lower_bound, upper_bound)
 	word_text = WordsManager.get_random_word(word_length).to_upper()
 	Game.add_word_to_active(word_text)
 	Game.letter_typed.connect(_on_letter_typed)
@@ -52,8 +59,9 @@ func _on_body_entered(_body: Node2D) -> void:
 func _physics_process(_delta: float) -> void:
 	if not is_on_floor:
 		return
-
+	
 	linear_velocity.x = -1 * SPEED - (Game.state.difficulty * 20)
+	linear_velocity.x = clamp(linear_velocity.x, max_word_speed, 0)
 
 func do_damage() -> void:
 	print("do damage")

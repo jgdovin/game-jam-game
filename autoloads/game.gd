@@ -164,9 +164,7 @@ func _on_word_completed(_word: String) -> void:
 	state.current_streak += 1
 	state.difficulty_streak += 1
 	if state.difficulty_streak > diff_formula(state.difficulty):
-		state.difficulty += 1
-		state.difficulty_streak = 0
-		difficulty_increased.emit()
+		increase_difficulty()
 	if state.current_streak > max_streak:
 		max_streak = state.current_streak
 
@@ -176,3 +174,9 @@ func _on_word_fell_in_fire(_word: String) -> void:
 	if not _has_partial_match(state.input_buffer):
 		print("No partial match, clearing input buffer")
 		state.input_buffer = ""
+
+func increase_difficulty(reset_streak: bool = true) -> void:
+	if reset_streak:
+		state.difficulty_streak = 0
+	state.difficulty += 1
+	difficulty_increased.emit()
