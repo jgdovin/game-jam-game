@@ -12,6 +12,7 @@ func _ready() -> void:
 	Game.letter_typed.connect(_on_letter_typed)
 
 func _on_letter_typed(letter: String, is_valid: bool) -> void:
+	print(is_valid)
 	if is_valid:
 		self_modulate = Color(0, 1, 0, 1)
 		var rng: RandomNumberGenerator = RandomNumberGenerator.new()

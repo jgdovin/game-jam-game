@@ -108,7 +108,6 @@ func _unhandled_input(event):
 			return
 		
 		state.input_buffer += character
-		letter_typed.emit(character, true)
 		print("Current input buffer: ", state.input_buffer)
 
 		if _is_word_matched(state.input_buffer):
@@ -116,11 +115,14 @@ func _unhandled_input(event):
 			get_tree().call_group("words", "complete", state.input_buffer)
 			remove_word_from_active(state.input_buffer)
 			state.input_buffer = ""
+			letter_typed.emit(character, true)
 			return
 		
 		if _has_partial_match(state.input_buffer):
 			partical_match_found.emit(state.input_buffer)
+			letter_typed.emit(character, true)
 			return
+		letter_typed.emit(character, false)
 
 		# Typo was made.
 		_typo_made()
