@@ -1,0 +1,14 @@
+AudioStreamPlayer
+Sprite2D
+AnimatedSprite2D
+AnimationPlayer
+AnimationTree
+Label
+TextureRect
+ColorRect
+Control
+CenterContainer
+PanelContainer
+Node2D
+CPUParticles2D
+TextEdit
