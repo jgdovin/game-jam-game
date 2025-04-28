@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://uxsufey75y6e"]
+
+[ext_resource type="Texture2D" uid="uid://bcs71u7728l5e" path="res://assets/hanglight-animated.png" id="1_wuk2r"]
+[ext_resource type="Script" uid="uid://vc8ovl0ee28u" path="res://scenes/factory/light.gd" id="2_p7oyc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn8px"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57o46"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h56bk"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a47qo"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xsq5"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhein"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34aiy"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1tqrf"]
+atlas = ExtResource("1_wuk2r")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkhht"]
+animations = [{
+"frames": [{
+"duration": 3.1,
+"texture": SubResource("AtlasTexture_bn8px")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_57o46")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_h56bk")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_a47qo")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_6xsq5")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_nhein")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_34aiy")
+}, {
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_1tqrf")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_bn8px")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Light" type="AnimatedSprite2D"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xkhht")
+script = ExtResource("2_p7oyc")

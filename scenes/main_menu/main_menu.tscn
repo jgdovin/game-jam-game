@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cljd1s7ui0fx0"]
+[gd_scene load_steps=18 format=3 uid="uid://cljd1s7ui0fx0"]
 
 [ext_resource type="Script" uid="uid://caxsoxs3kb8b4" path="res://scenes/main_menu/main_menu.gd" id="1_l48gv"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="1_ytr4m"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cqfylhanhbpks" path="res://assets/button_pressed.png" id="5_ytr4m"]
 [ext_resource type="LabelSettings" uid="uid://c2q3frv4y1csd" path="res://presets/credits_left_label.tres" id="7_5seab"]
 [ext_resource type="LabelSettings" uid="uid://dn6jlj384w3er" path="res://presets/credits_right_label.tres" id="8_4xg86"]
+[ext_resource type="Texture2D" uid="uid://co1cjkuv445fm" path="res://assets/titlebanner.png" id="9_thkx5"]
+[ext_resource type="PackedScene" uid="uid://uxsufey75y6e" path="res://scenes/factory/light.tscn" id="10_x2yjq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ecwwl"]
 font = ExtResource("2_ytr4m")
@@ -78,6 +80,8 @@ _data = {
 &"default": SubResource("Animation_kk3ma")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x2yjq"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l48gv"]
 texture = ExtResource("5_ytr4m")
 texture_margin_left = 20.0
@@ -106,6 +110,7 @@ texture = ExtResource("1_ytr4m")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -146,10 +151,9 @@ theme_override_constants/separation = 20
 [node name="Start" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
-text = "      START      "
+text = "START"
 script = ExtResource("5_3ovsr")
 metadata/_custom_type_script = "uid://c0hmda2xktura"
 
@@ -160,14 +164,13 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
 disabled = true
-text = "    OPTIONS     "
+text = "OPTIONS"
 script = ExtResource("5_3ovsr")
 metadata/_custom_type_script = "uid://c0hmda2xktura"
 
 [node name="Leaderboard" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
 text = "LEADERBOARD"
@@ -177,10 +180,9 @@ metadata/_custom_type_script = "uid://c0hmda2xktura"
 [node name="Exit" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
-text = "       EXIT        "
+text = "EXIT"
 script = ExtResource("5_3ovsr")
 metadata/_custom_type_script = "uid://c0hmda2xktura"
 
@@ -193,15 +195,40 @@ autoplay = "default"
 [node name="Credits" type="Button" parent="."]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 984.0
+offset_left = 924.0
 offset_top = 538.0
-offset_right = 1117.0
+offset_right = 1101.0
 offset_bottom = 610.0
 theme = ExtResource("4_l48gv")
 theme_override_font_sizes/font_size = 31
 text = "CREDITS"
 script = ExtResource("5_3ovsr")
 metadata/_custom_type_script = "uid://c0hmda2xktura"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 245.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_x2yjq")
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer2/CenterContainer"]
+custom_minimum_size = Vector2(680, 170)
+layout_mode = 2
+texture = ExtResource("9_thkx5")
+stretch_mode = 4
+
+[node name="Light" parent="." instance=ExtResource("10_x2yjq")]
+position = Vector2(125, 58)
+scale = Vector2(8, 8)
+
+[node name="Light2" parent="." instance=ExtResource("10_x2yjq")]
+position = Vector2(1023, 128)
+scale = Vector2(8, 8)
 
 [node name="CreditsPanel" type="Panel" parent="."]
 unique_name_in_owner = true
