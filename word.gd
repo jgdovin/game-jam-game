@@ -24,6 +24,7 @@ func _ready() -> void:
 	var upper_bound: int = min(Game.state.difficulty + 4, max_word_length)
 	print("Lower bound: ", lower_bound, " | Upper bound: ", upper_bound)
 	word_length = rng.randi_range(lower_bound, upper_bound)
+	var word_length = 8
 	word_text = WordsManager.get_random_word(word_length).to_upper()
 	Game.add_word_to_active(word_text)
 	Game.letter_typed.connect(_on_letter_typed)

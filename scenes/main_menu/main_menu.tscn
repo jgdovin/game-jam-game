@@ -153,7 +153,7 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("4_l48gv")
-text = "STARTS"
+text = "START"
 script = ExtResource("5_3ovsr")
 metadata/_custom_type_script = "uid://c0hmda2xktura"
 

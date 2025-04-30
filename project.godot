@@ -28,7 +28,6 @@ SFXPool="*res://autoloads/qaudio/sfx_pool.tscn"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [dotnet]

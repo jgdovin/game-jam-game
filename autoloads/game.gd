@@ -1,5 +1,5 @@
 extends Node
-var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "SPACE"]
 
 signal word_completed(word: String)
 signal partical_match_found(word: String)
@@ -107,6 +107,8 @@ func _unhandled_input(event):
 		if not character in alphabet:
 			return
 		
+		if character == "SPACE":
+			character = " "
 		state.input_buffer += character
 		print("Current input buffer: ", state.input_buffer)
 
