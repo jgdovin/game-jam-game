@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl8dff5aus1t8"]
+[gd_scene load_steps=10 format=3 uid="uid://bl8dff5aus1t8"]
 
 [ext_resource type="Script" uid="uid://dbi2jitucvhx4" path="res://scenes/pause_menu/pause_menu.gd" id="1_10tpt"]
 [ext_resource type="Shader" uid="uid://b5wwfunh5njqh" path="res://scenes/pause_menu/blur.gdshader" id="1_qcmsd"]
 [ext_resource type="Texture2D" uid="uid://jstss0oi4xf6" path="res://scenes/pause_menu/assets/pausemenupanel.png" id="2_10tpt"]
-[ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="4_0a7io"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0a7io"]
 shader = ExtResource("1_qcmsd")
@@ -89,15 +88,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_10tpt")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 1199.0
-offset_bottom = 681.0
-scale = Vector2(4, 4)
-texture = ExtResource("4_0a7io")
-stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_0a7io")
@@ -107,6 +99,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 unique_name_in_owner = true
