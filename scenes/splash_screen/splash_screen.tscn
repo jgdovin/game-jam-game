@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://dxmkrxx22d705"]
+[gd_scene load_steps=32 format=3 uid="uid://dxmkrxx22d705"]
 
-[ext_resource type="Script" uid="uid://dmqjh03ie4g7i" path="res://scenes/splash/splash.gd" id="1_wwhxh"]
-[ext_resource type="Texture2D" uid="uid://d0sxfvm0bkhfk" path="res://assets/low-res-duck.png" id="1_y4437"]
-[ext_resource type="Texture2D" uid="uid://dl26r733ajpob" path="res://assets/egg-crack.png" id="3_a6n0j"]
-[ext_resource type="Texture2D" uid="uid://d3l0jfilynvig" path="res://assets/dgs.png" id="3_wwhxh"]
-[ext_resource type="AudioStream" uid="uid://c4r0i6sayomms" path="res://assets/audio/dgs_egg_intro_prototype.wav" id="5_a6n0j"]
-[ext_resource type="Texture2D" uid="uid://bc8s3u1y5tls1" path="res://assets/dsg-high-res-logo.png" id="6_m61hw"]
+[ext_resource type="Script" uid="uid://dmqjh03ie4g7i" path="res://scenes/splash_screen/splash.gd" id="1_m4uua"]
+[ext_resource type="Texture2D" uid="uid://dl26r733ajpob" path="res://assets/egg-crack.png" id="2_104gu"]
+[ext_resource type="Texture2D" uid="uid://d3l0jfilynvig" path="res://assets/dgs.png" id="3_lknj3"]
+[ext_resource type="Texture2D" uid="uid://d0sxfvm0bkhfk" path="res://assets/low-res-duck.png" id="4_6h1wc"]
+[ext_resource type="AudioStream" uid="uid://c4r0i6sayomms" path="res://assets/audio/dgs_egg_intro_prototype.wav" id="5_7hqq6"]
 
 [sub_resource type="Animation" id="Animation_wwhxh"]
 length = 0.001
@@ -143,6 +142,7 @@ tracks/10/keys = {
 
 [sub_resource type="Animation" id="Animation_xtuk2"]
 resource_name = "lay"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -239,6 +239,20 @@ tracks/7/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_main_menu"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_a6n0j"]
 resource_name = "lay"
@@ -315,75 +329,75 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mulaw"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(0, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncq3u"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(64, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ali8k"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(128, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcdhp"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(192, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8nmfa"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(256, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xqcc"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(320, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bodnt"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(384, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f5uny"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(448, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hsdtn"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(512, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0t6p"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(576, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n0eqx"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(640, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vg3f"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(704, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c72y5"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(768, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvduh"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(832, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vtna"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(896, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jp2hd"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(960, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8o0bb"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(1024, 0, 64, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2bouf"]
-atlas = ExtResource("3_a6n0j")
+atlas = ExtResource("2_104gu")
 region = Rect2(1088, 0, 64, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w0yuh"]
@@ -448,6 +462,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_mulaw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_jdmxl"]
 resource_name = "phase"
 length = 2.0
@@ -463,45 +492,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.166667, 0.433333, 0.7, 1, 1.2, 1.36667, 1.53333, 1.66667, 1.76667, 1.86667, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_mulaw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ncq3u"]
 _data = {
@@ -516,7 +506,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_wwhxh")
+script = ExtResource("1_m4uua")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -544,14 +534,14 @@ sprite_frames = SubResource("SpriteFrames_w0yuh")
 visible = false
 position = Vector2(932, 569)
 scale = Vector2(0.130102, 0.130102)
-texture = ExtResource("3_wwhxh")
+texture = ExtResource("3_lknj3")
 
 [node name="EggLeft" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(813, 569)
 scale = Vector2(6, 6)
-texture = ExtResource("3_a6n0j")
+texture = ExtResource("2_104gu")
 offset = Vector2(0, -16)
 region_enabled = true
 region_rect = Rect2(0, 32, 64, 32)
@@ -561,7 +551,7 @@ unique_name_in_owner = true
 visible = false
 position = Vector2(825, 569)
 scale = Vector2(6, 6)
-texture = ExtResource("3_a6n0j")
+texture = ExtResource("2_104gu")
 offset = Vector2(0, -16)
 flip_h = true
 region_enabled = true
@@ -580,18 +570,12 @@ offset_right = 8.0
 offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_y4437")
+texture = ExtResource("4_6h1wc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_a6n0j")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(287.5, 312.5)
-scale = Vector2(0.374375, 0.374375)
-texture = ExtResource("6_m61hw")
+stream = ExtResource("5_7hqq6")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ncq3u")
 }
-autoplay = "phase"

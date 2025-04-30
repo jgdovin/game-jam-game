@@ -10,6 +10,7 @@ var current_gui_scene
 @onready var main_menu_scene: PackedScene = preload("res://scenes/main_menu/main_menu.tscn")
 @onready var factory_scene: PackedScene = preload("res://scenes/factory/factory.tscn")
 @onready var leaderboard_scene: PackedScene = preload("res://scenes/leaderboard/leaderboard.tscn")
+@onready var splash_screen_scene: PackedScene = preload("res://scenes/splash_screen/splash_screen.tscn")
 var main_menu: Control
 var factory: Node2D
 
@@ -18,7 +19,7 @@ func _ready() -> void:
 	References.game_controller = self
 	main_menu = main_menu_scene.instantiate()
 	factory = factory_scene.instantiate()
-	load_main_menu()
+	load_splash_screen()
 
 func load_leaderboard() -> void:
 	if current_gui_scene:
@@ -27,6 +28,14 @@ func load_leaderboard() -> void:
 	var leaderboard_instance = leaderboard_scene.instantiate()
 	gui.call_deferred("add_child", leaderboard_instance)
 	current_gui_scene = leaderboard_instance
+
+func load_splash_screen() -> void:
+	if current_gui_scene:
+		current_gui_scene.queue_free()
+		current_gui_scene = null
+	var splash_screen_instance = splash_screen_scene.instantiate()
+	gui.call_deferred("add_child", splash_screen_instance)
+	current_gui_scene = splash_screen_instance
 
 func load_main_menu() -> void:
 	SoundManager.stop_game_music()

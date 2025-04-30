@@ -12,3 +12,6 @@ func _on_egg_crack_animation_finished() -> void:
 
 func play_egg_crack_animation() -> void:
 	egg_crack.play("default")
+
+func load_main_menu() -> void:
+	References.game_controller.load_main_menu()
