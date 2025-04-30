@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://6eg8j7bwjmqg"]
+
+[ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="1_57tfh"]
+
+[resource]
+font = ExtResource("1_57tfh")
+font_size = 46
+font_color = Color(0.831373, 0.356863, 0.0901961, 1)

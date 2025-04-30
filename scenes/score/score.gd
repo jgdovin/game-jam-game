@@ -5,7 +5,6 @@ extends Label
 func _ready() -> void:
 	text = "0"
 	Game.score_changed.connect(_update_score)
-	self_modulate = Color(0, 1, 0, 1)
 	
 
 func _update_score(new_score: int) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=37 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_h56bk"]
@@ -15,15 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://uxsufey75y6e" path="res://scenes/factory/light.tscn" id="9_6xsq5"]
 [ext_resource type="PackedScene" uid="uid://bhvimsqkbu22t" path="res://scenes/typo_mode/typo_mode.tscn" id="10_qrdmi"]
 [ext_resource type="PackedScene" uid="uid://pjukli8wk0v1" path="res://scenes/health/health.tscn" id="10_vv6eg"]
-[ext_resource type="PackedScene" uid="uid://3btnrhnagxq3" path="res://scenes/score/score.tscn" id="11_7v5iq"]
 [ext_resource type="Script" uid="uid://bdh1tqlfuwlgx" path="res://scenes/factory/camera_2d.gd" id="12_ggcq3"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="13_5kr2y"]
 [ext_resource type="AudioStream" uid="uid://duw11wyx04ub0" path="res://assets/audio/conveyer.wav" id="13_5pcoe"]
-[ext_resource type="Script" uid="uid://dbiqoqc0pcby1" path="res://scenes/stats/stats.gd" id="13_hg0jv"]
 [ext_resource type="FontFile" uid="uid://25vfhmal8viy" path="res://assets/fonts/Long_Shot.ttf" id="14_64w5n"]
-[ext_resource type="PackedScene" uid="uid://dwe67bvrjm52a" path="res://scenes/player_emoji_display/emoji_display.tscn" id="15_5kr2y"]
 [ext_resource type="Script" uid="uid://cnubg0hpocwk1" path="res://scenes/difficulty_label/difficulty_increased.gd" id="15_i4dya"]
 [ext_resource type="PackedScene" uid="uid://bi0er1tc1balm" path="res://scenes/debug_overlay/debug_overlay.tscn" id="17_qrdmi"]
+[ext_resource type="PackedScene" uid="uid://gi300eqmmcxx" path="res://scenes/stats_display/stats_display.tscn" id="19_57o46"]
 [ext_resource type="PackedScene" uid="uid://bl8dff5aus1t8" path="res://scenes/pause_menu/pause_menu.tscn" id="23_a47qo"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
@@ -140,23 +138,6 @@ bg_color = Color(0.113725, 0.262745, 0.329412, 0.92549)
 [sub_resource type="LabelSettings" id="LabelSettings_pw8bt"]
 font = ExtResource("13_5kr2y")
 font_size = 76
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggcq3"]
-bg_color = Color(0.113725, 0.262745, 0.329412, 0.92549)
-
-[sub_resource type="LabelSettings" id="LabelSettings_bn8px"]
-font = ExtResource("13_5kr2y")
-font_size = 20
-
-[sub_resource type="LabelSettings" id="LabelSettings_sv744"]
-font = ExtResource("13_5kr2y")
-font_size = 46
-
-[sub_resource type="LabelSettings" id="LabelSettings_i4dya"]
-font_size = 18
-
-[sub_resource type="LabelSettings" id="LabelSettings_qrdmi"]
-font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_hg0jv"]
 font = ExtResource("14_64w5n")
@@ -439,133 +420,7 @@ offset_bottom = 632.0
 text = "DUCK"
 label_settings = SubResource("LabelSettings_pw8bt")
 
-[node name="Stats" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 203.0
-offset_bottom = 252.0
-script = ExtResource("13_hg0jv")
-
-[node name="PanelContainer" type="PanelContainer" parent="UI/Stats"]
-layout_mode = 1
-offset_right = 276.0
-offset_bottom = 280.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ggcq3")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/Stats/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="PlayerLabel" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Player"
-label_settings = SubResource("LabelSettings_bn8px")
-horizontal_alignment = 1
-
-[node name="EmojiHolder" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("15_5kr2y")]
-layout_mode = 2
-
-[node name="Score" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("11_7v5iq")]
-layout_mode = 2
-label_settings = SubResource("LabelSettings_sv744")
-horizontal_alignment = 1
-
-[node name="NextDifficulty" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/NextDifficulty"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "To Next Diff"
-label_settings = SubResource("LabelSettings_i4dya")
-
-[node name="NextDifficultyValue" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/NextDifficulty"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_qrdmi")
-
-[node name="CurrDifficulty" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/CurrDifficulty"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Curr Diff Lvl"
-label_settings = SubResource("LabelSettings_i4dya")
-
-[node name="CurrDifficultyValue" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/CurrDifficulty"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_qrdmi")
-
-[node name="CurrStreak" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/CurrStreak"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Streak"
-label_settings = SubResource("LabelSettings_i4dya")
-
-[node name="CurrStreakValue" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/CurrStreak"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_qrdmi")
-
-[node name="Typos" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/Typos"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Typos"
-label_settings = SubResource("LabelSettings_i4dya")
-
-[node name="TyposValue" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/Typos"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_qrdmi")
-
-[node name="Completed" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/Completed"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Complete"
-label_settings = SubResource("LabelSettings_i4dya")
-
-[node name="CompletedValue" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/Completed"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_qrdmi")
-
-[node name="Lost" type="HBoxContainer" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/Lost"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-text = "Lost"
-label_settings = SubResource("LabelSettings_i4dya")
-
-[node name="LostValue" type="Label" parent="UI/Stats/PanelContainer/MarginContainer/VBoxContainer/Lost"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "0"
-label_settings = SubResource("LabelSettings_qrdmi")
+[node name="Stats" parent="UI" instance=ExtResource("19_57o46")]
 
 [node name="DebugOverlay" parent="UI" instance=ExtResource("17_qrdmi")]
 
