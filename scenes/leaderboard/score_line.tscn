@@ -5,7 +5,7 @@
 [ext_resource type="LabelSettings" uid="uid://d2m082iavt2ju" path="res://presets/label_leaderboard_value.tres" id="3_c1fqt"]
 [ext_resource type="PackedScene" uid="uid://dwe67bvrjm52a" path="res://scenes/player_emoji_display/emoji_display.tscn" id="3_xfb3c"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1epml"]
+[sub_resource type="LabelSettings" id="LabelSettings_csn7t"]
 font = ExtResource("2_xfb3c")
 font_size = 20
 font_color = Color(0.231373, 0.533333, 0.611765, 1)
@@ -17,10 +17,25 @@ script = ExtResource("1_66oxc")
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "1"
-label_settings = SubResource("LabelSettings_1epml")
+label_settings = SubResource("LabelSettings_csn7t")
 
-[node name="EmojiHolder" parent="." instance=ExtResource("3_xfb3c")]
+[node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EmojiHolder" parent="Control/CenterContainer" instance=ExtResource("3_xfb3c")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Score" type="Label" parent="."]

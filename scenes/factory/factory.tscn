@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=43 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="2_7v5iq"]
@@ -7,9 +7,7 @@
 [ext_resource type="Script" uid="uid://waov23iwse15" path="res://scenes/factory/press.gd" id="5_57o46"]
 [ext_resource type="PackedScene" uid="uid://bcxk1xwvkpmll" path="res://scenes/fire_pit/fire_pit.tscn" id="5_258vx"]
 [ext_resource type="PackedScene" uid="uid://dahf4dpbg2m7a" path="res://scenes/keyboard/keyboard.tscn" id="6_64w5n"]
-[ext_resource type="Script" uid="uid://vc8ovl0ee28u" path="res://scenes/factory/light.gd" id="6_bn8px"]
 [ext_resource type="Texture2D" uid="uid://c1onbbol86dfs" path="res://assets/printingpress-sheet.png" id="6_h56bk"]
-[ext_resource type="Texture2D" uid="uid://bcs71u7728l5e" path="res://assets/hanglight-animated.png" id="6_sv744"]
 [ext_resource type="PackedScene" uid="uid://djtc8frmq7460" path="res://scenes/typo_display/typo_display.tscn" id="7_7wd4f"]
 [ext_resource type="AudioStream" uid="uid://bub7uws5qsj6e" path="res://assets/audio/clang.wav" id="7_h56bk"]
 [ext_resource type="PackedScene" uid="uid://0114ckc6otb1" path="res://scenes/current_typing_label/current_typing_label.tscn" id="7_i4dya"]
@@ -134,70 +132,6 @@ _data = {
 &"RESET": SubResource("Animation_h56bk"),
 &"press": SubResource("Animation_57o46")
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bn8px"]
-atlas = ExtResource("6_sv744")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57o46"]
-atlas = ExtResource("6_sv744")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h56bk"]
-atlas = ExtResource("6_sv744")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a47qo"]
-atlas = ExtResource("6_sv744")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xsq5"]
-atlas = ExtResource("6_sv744")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhein"]
-atlas = ExtResource("6_sv744")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34aiy"]
-atlas = ExtResource("6_sv744")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1tqrf"]
-atlas = ExtResource("6_sv744")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xkhht"]
-animations = [{
-"frames": [{
-"duration": 3.1,
-"texture": SubResource("AtlasTexture_bn8px")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_57o46")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_h56bk")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_a47qo")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_6xsq5")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_nhein")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_34aiy")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_1tqrf")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
 bg_color = Color(0.113725, 0.262745, 0.329412, 0.92549)
@@ -443,26 +377,14 @@ z_index = 3
 [node name="Light" parent="Lights" instance=ExtResource("9_6xsq5")]
 position = Vector2(69, 64)
 
-[node name="Light2" type="AnimatedSprite2D" parent="Lights"]
+[node name="Light5" parent="Lights" instance=ExtResource("9_6xsq5")]
 position = Vector2(389, 64)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xkhht")
-frame_progress = 0.545347
-script = ExtResource("6_bn8px")
 
-[node name="Light3" type="AnimatedSprite2D" parent="Lights"]
+[node name="Light6" parent="Lights" instance=ExtResource("9_6xsq5")]
 position = Vector2(773, 64)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xkhht")
-frame_progress = 0.545347
-script = ExtResource("6_bn8px")
 
-[node name="Light4" type="AnimatedSprite2D" parent="Lights"]
+[node name="Light7" parent="Lights" instance=ExtResource("9_6xsq5")]
 position = Vector2(1093, 64)
-scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xkhht")
-frame_progress = 0.545347
-script = ExtResource("6_bn8px")
 
 [node name="Health" parent="." instance=ExtResource("10_vv6eg")]
 offset_left = 238.0

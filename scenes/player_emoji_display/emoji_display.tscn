@@ -4,11 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://oqdchk32jk5a" path="res://assets/emojis/1.png" id="2_skmqg"]
 
 [node name="EmojiHolder" type="HBoxContainer"]
+size_flags_horizontal = 4
 script = ExtResource("1_shisd")
 
 [node name="EmojiDisplayBase" type="TextureRect" parent="."]
 visible = false
-custom_minimum_size = Vector2(35, 50)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_skmqg")

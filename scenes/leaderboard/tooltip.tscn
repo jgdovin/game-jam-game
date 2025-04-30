@@ -21,6 +21,7 @@ script = ExtResource("1_rtqjv")
 
 [node name="Display" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 offset_right = 263.0
 offset_bottom = 53.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_gad2b")

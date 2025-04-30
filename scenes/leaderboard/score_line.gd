@@ -2,7 +2,7 @@ extends HBoxContainer
 
 var data: Dictionary
 
-@onready var emoji_holder: HBoxContainer = $EmojiHolder
+@onready var emoji_holder: HBoxContainer = %EmojiHolder
 
 @onready var rank_label: Label = $Rank
 @onready var score_label: Label = $Score

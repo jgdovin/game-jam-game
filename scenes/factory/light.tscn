@@ -71,6 +71,7 @@ animations = [{
 }]
 
 [node name="Light" type="AnimatedSprite2D"]
+self_modulate = Color(0.75, 0.75, 0.75, 1)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_xkhht")
 script = ExtResource("2_p7oyc")

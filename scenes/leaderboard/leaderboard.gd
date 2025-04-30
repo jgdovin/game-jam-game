@@ -9,6 +9,7 @@ extends Control
 @onready var player_score: Node = %PlayerScore
 @onready var player_score_container: PanelContainer = %PlayerScoreContainer
 @onready var tooltip_container: Control = %Tooltips
+@onready var scroll_container: ScrollContainer = %ScrollContainer
 
 @onready var game_over_label: Label = %GameOver
 
