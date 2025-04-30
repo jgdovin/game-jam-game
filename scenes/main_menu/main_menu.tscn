@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cljd1s7ui0fx0"]
 
 [ext_resource type="Script" uid="uid://caxsoxs3kb8b4" path="res://scenes/main_menu/main_menu.gd" id="1_l48gv"]
-[ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="1_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_x2yjq"]
 [ext_resource type="FontFile" uid="uid://bqssjbltqak3i" path="res://assets/GEMBALL-Regular.ttf" id="2_ytr4m"]
 [ext_resource type="Theme" uid="uid://boarbiipirdws" path="res://main_theme.tres" id="4_l48gv"]
 [ext_resource type="Script" uid="uid://c0hmda2xktura" path="res://classes/qaudio/ButtonWithSound.gd" id="5_3ovsr"]
@@ -106,7 +106,7 @@ offset_top = -136.0
 offset_right = 194.0
 offset_bottom = 122.0
 scale = Vector2(4, 4)
-texture = ExtResource("1_ytr4m")
+texture = ExtResource("2_x2yjq")
 stretch_mode = 1
 
 [node name="Label" type="Label" parent="."]

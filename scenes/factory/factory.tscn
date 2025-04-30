@@ -1,7 +1,7 @@
 [gd_scene load_steps=43 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
-[ext_resource type="Texture2D" uid="uid://0qyrrxwruot1" path="res://assets/ScaffoldBG.png" id="2_7v5iq"]
+[ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_h56bk"]
 [ext_resource type="PackedScene" uid="uid://c3cre8gipu55t" path="res://scenes/conveyor/conveyor_belt.tscn" id="3_258vx"]
 [ext_resource type="Texture2D" uid="uid://c560r2l8m31ek" path="res://assets/Scaffold.png" id="3_ggcq3"]
 [ext_resource type="Script" uid="uid://waov23iwse15" path="res://scenes/factory/press.gd" id="5_57o46"]
@@ -242,14 +242,13 @@ script = ExtResource("1_vv6eg")
 
 [node name="Background" type="TextureRect" parent="."]
 unique_name_in_owner = true
-visible = false
 offset_left = -823.0
 offset_top = -471.0
-offset_right = -153.0
-offset_bottom = -88.0
+offset_right = -275.0
+offset_bottom = -128.0
 scale = Vector2(4, 4)
 mouse_filter = 2
-texture = ExtResource("2_7v5iq")
+texture = ExtResource("2_h56bk")
 stretch_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
