@@ -1,7 +1,7 @@
 extends Node2D
 var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-@onready var sprite: Sprite2D = $Sprite2D
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var label: Label = %Label
 
 var current_letter: String = ""
 var current_progress: float = 0.0
@@ -21,7 +21,7 @@ func _on_typo_mode_started() -> void:
 	visible = true
 	current_progress = 0.0
 	current_letter = alphabet[randi() % alphabet.size()]
-	sprite.texture = load("res://assets/Keyboard/%s.png" % current_letter)
+	label.text = current_letter
 	SoundManager.play_typo_music()
 	progress_bar.max_value = get_progress_bar_based_on_difficulty()
 

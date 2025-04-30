@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dahf4dpbg2m7a"]
+[gd_scene load_steps=4 format=3 uid="uid://dahf4dpbg2m7a"]
 
 [ext_resource type="Texture2D" uid="uid://bjn53iy53gxr5" path="res://assets/Keyboard/FullKeyboard.png" id="1_a8m4y"]
 [ext_resource type="Script" uid="uid://ct520qd0nubpx" path="res://scenes/keyboard/keyboard.gd" id="2_rk632"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_sfifd"]
+font_size = 18
+
 [node name="Keyboard" type="Sprite2D"]
-self_modulate = Color(0.662745, 0.764706, 0.811765, 1)
+modulate = Color(0.662745, 0.764706, 0.811765, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_a8m4y")
 script = ExtResource("2_rk632")
@@ -12,3 +15,14 @@ script = ExtResource("2_rk632")
 [node name="KeyboardStartPoint" type="Node2D" parent="."]
 position = Vector2(-135, -33.5)
 scale = Vector2(0.5, 0.5)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -145.0
+offset_top = -41.0
+offset_right = -125.0
+offset_bottom = -23.0
+text = "Q"
+label_settings = SubResource("LabelSettings_sfifd")
+horizontal_alignment = 1
+vertical_alignment = 1

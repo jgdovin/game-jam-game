@@ -1,8 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2rbe486uif26"]
+[gd_scene load_steps=4 format=3 uid="uid://c2rbe486uif26"]
 
-[ext_resource type="Texture2D" uid="uid://qf30oyep4vd6" path="res://assets/Keyboard/Q.png" id="1_efj5b"]
+[ext_resource type="Texture2D" uid="uid://bsaghi2ypmaf0" path="res://scenes/keyboard/assets/blankkey_white.png" id="1_efj5b"]
 [ext_resource type="Script" uid="uid://c2i0stwfdg2ly" path="res://scenes/keyboard/key.gd" id="2_v306x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_efj5b"]
+line_spacing = 0.0
+font_size = 20
 
 [node name="Key" type="Sprite2D"]
 texture = ExtResource("1_efj5b")
 script = ExtResource("2_v306x")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 10.0
+text = "A"
+label_settings = SubResource("LabelSettings_efj5b")
+horizontal_alignment = 1
+vertical_alignment = 1

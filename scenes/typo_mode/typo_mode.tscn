@@ -1,17 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhvimsqkbu22t"]
+[gd_scene load_steps=8 format=3 uid="uid://bhvimsqkbu22t"]
 
 [ext_resource type="Script" uid="uid://cy2m17abbbi46" path="res://scenes/typo_mode/typo_mode.gd" id="1_javqj"]
-[ext_resource type="Texture2D" uid="uid://bwpdbpbiwp51i" path="res://assets/Keyboard/A.png" id="2_cv4bp"]
+[ext_resource type="Texture2D" uid="uid://bsaghi2ypmaf0" path="res://scenes/keyboard/assets/blankkey_white.png" id="2_javqj"]
 
 [sub_resource type="Animation" id="Animation_7sc4i"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("AnimatedNode/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedNode:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -24,14 +36,26 @@ length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/enabled = false
+tracks/0/path = NodePath("AnimatedNode/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedNode:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
 "values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
@@ -42,15 +66,14 @@ _data = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_javqj"]
-bg_color = Color(1, 0.631373, 0.188235, 1)
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv4bp"]
+font_size = 185
 
 [node name="TypoMode" type="Node2D"]
+modulate = Color(1, 0.631373, 0.188235, 1)
 script = ExtResource("1_javqj")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 0.631373, 0.188235, 1)
-scale = Vector2(10, 10)
-texture = ExtResource("2_cv4bp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -69,3 +92,18 @@ theme_override_styles/background = SubResource("StyleBoxFlat_javqj")
 fill_mode = 3
 
 [node name="SmashNode" type="Node2D" parent="."]
+
+[node name="AnimatedNode" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedNode"]
+scale = Vector2(10, 10)
+texture = ExtResource("2_javqj")
+
+[node name="Label" type="Label" parent="AnimatedNode"]
+unique_name_in_owner = true
+offset_left = -63.0
+offset_top = -88.0
+offset_right = 61.0
+offset_bottom = 99.0
+text = "Q"
+label_settings = SubResource("LabelSettings_cv4bp")
