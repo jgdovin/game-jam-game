@@ -8,22 +8,41 @@
 [sub_resource type="LabelSettings" id="LabelSettings_csn7t"]
 font = ExtResource("2_xfb3c")
 font_size = 20
-font_color = Color(0.231373, 0.533333, 0.611765, 1)
+font_color = Color(0.0941176, 0.152941, 0.180392, 1)
 
-[node name="ScoreLine" type="HBoxContainer"]
+[node name="ScoreLine" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_66oxc")
 
-[node name="Rank" type="Label" parent="."]
+[node name="Highlight" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -11.0
+offset_top = -4.0
+offset_right = 889.0
+offset_bottom = 23.0
+color = Color(0.336, 0.4712, 0.96, 0.498039)
+
+[node name="ScoreLine" type="HBoxContainer" parent="."]
+layout_mode = 0
+
+[node name="Rank" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_csn7t")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="ScoreLine"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Control"]
+[node name="CenterContainer" type="CenterContainer" parent="ScoreLine/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,46 +53,52 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="EmojiHolder" parent="Control/CenterContainer" instance=ExtResource("3_xfb3c")]
+[node name="EmojiHolder" parent="ScoreLine/Control/CenterContainer" instance=ExtResource("3_xfb3c")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Score" type="Label" parent="."]
+[node name="Score" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "999999"
 label_settings = ExtResource("3_c1fqt")
 horizontal_alignment = 1
 
-[node name="Difficulty" type="Label" parent="."]
+[node name="Difficulty" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 text = "6"
 label_settings = ExtResource("3_c1fqt")
 horizontal_alignment = 1
 
-[node name="Completed" type="Label" parent="."]
+[node name="Completed" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 text = "43"
 label_settings = ExtResource("3_c1fqt")
 horizontal_alignment = 1
 
-[node name="Lost" type="Label" parent="."]
+[node name="Lost" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(130, 0)
 layout_mode = 2
 text = "5"
 label_settings = ExtResource("3_c1fqt")
 horizontal_alignment = 1
 
-[node name="Typo" type="Label" parent="."]
+[node name="Typo" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "3"
 label_settings = ExtResource("3_c1fqt")
 horizontal_alignment = 1
 
-[node name="Smash" type="Label" parent="."]
+[node name="Smash" type="Label" parent="ScoreLine"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 text = "3"

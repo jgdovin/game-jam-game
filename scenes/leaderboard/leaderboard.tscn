@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpm3lgy15lb3l"]
+[gd_scene load_steps=25 format=3 uid="uid://bpm3lgy15lb3l"]
 
 [ext_resource type="Script" uid="uid://bfyc5lv3ulup0" path="res://scenes/leaderboard/leaderboard.gd" id="1_x3ryb"]
 [ext_resource type="FontFile" uid="uid://cq7ydldetdpy2" path="res://assets/fonts/telegrama_raw.otf" id="2_1epml"]
@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cr47d8yp6g8ng" path="res://scenes/leaderboard/tooltip.tscn" id="9_db5xh"]
 [ext_resource type="Script" uid="uid://c0hmda2xktura" path="res://classes/qaudio/ButtonWithSound.gd" id="10_gad2b"]
 [ext_resource type="Texture2D" uid="uid://bqeprwunid7lc" path="res://assets/InfoIcon.png" id="10_ss4ib"]
+
+[sub_resource type="Curve" id="Curve_vyrnl"]
+_data = [Vector2(0.0166667, 0.0510625), 0.0, 3.3783, 0, 0, Vector2(0.22037, 0.808431), 3.71799, 0.246304, 1, 1, Vector2(0.998148, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q1831"]
 texture = ExtResource("3_ss4ib")
@@ -87,6 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_x3ryb")
+curve = SubResource("Curve_vyrnl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_repeat = 2
@@ -196,11 +201,12 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 theme_override_constants/margin_left = 34
 theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 30
 
 [node name="ScoreHolder" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 
 [node name="PlayerScoreContainer" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

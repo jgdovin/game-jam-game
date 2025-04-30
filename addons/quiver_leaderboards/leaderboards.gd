@@ -206,6 +206,22 @@ func get_player_scores(leaderboard_id: String, offset := 0, limit := 10, start_t
 	var query_string := "?offset=%d&limit=%d&start_time=%f&end_time=%f" % [offset, limit, start_time, end_time]
 	return await _get_scores_base(leaderboard_id, PlayerAccounts.player_token, GET_PLAYER_SCORES_PATH, query_string)
 
+func get_player_latest_rank(leaderboard_id: String) -> int:
+	var scores = await Leaderboards.get_nearby_scores(leaderboard_id, 1, Leaderboards.NearbyAnchor.LATEST)
+	var players_rank = 0
+	if scores.scores.size() == 3:
+		players_rank = scores.scores[1].rank
+	
+	if scores.scores.size() == 1:
+		players_rank = scores.scores[0].rank
+
+	if scores.scores.size() == 2:
+		if scores.scores[0].rank == 1:
+			players_rank = scores.scores[0].rank
+		else:
+			players_rank = scores.scores[1].rank
+
+	return int(players_rank)
 
 ## Get scores near the score of the current guest player or logged in player.
 ##

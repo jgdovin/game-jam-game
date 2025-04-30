@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=44 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_h56bk"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://dwe67bvrjm52a" path="res://scenes/player_emoji_display/emoji_display.tscn" id="15_5kr2y"]
 [ext_resource type="Script" uid="uid://cnubg0hpocwk1" path="res://scenes/difficulty_label/difficulty_increased.gd" id="15_i4dya"]
 [ext_resource type="PackedScene" uid="uid://bi0er1tc1balm" path="res://scenes/debug_overlay/debug_overlay.tscn" id="17_qrdmi"]
+[ext_resource type="PackedScene" uid="uid://bl8dff5aus1t8" path="res://scenes/pause_menu/pause_menu.tscn" id="23_a47qo"]
 
 [sub_resource type="Animation" id="Animation_iotsf"]
 length = 0.001
@@ -567,6 +568,8 @@ text = "0"
 label_settings = SubResource("LabelSettings_qrdmi")
 
 [node name="DebugOverlay" parent="UI" instance=ExtResource("17_qrdmi")]
+
+[node name="PauseMenu" parent="UI" instance=ExtResource("23_a47qo")]
 
 [node name="DifficultyIncreased" type="Label" parent="."]
 visible = false

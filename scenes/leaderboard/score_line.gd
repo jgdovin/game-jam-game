@@ -1,19 +1,23 @@
-extends HBoxContainer
+extends Control
 
 var data: Dictionary
 
 @onready var emoji_holder: HBoxContainer = %EmojiHolder
 
-@onready var rank_label: Label = $Rank
-@onready var score_label: Label = $Score
-@onready var difficulty_label: Label = $Difficulty
-@onready var completed_label: Label = $Completed
-@onready var lost_label: Label = $Lost
-@onready var typos_label: Label = $Typo
-@onready var smash_label: Label = $Smash
+var is_current_player: bool = false
+
+@onready var rank_label: Label = %Rank
+@onready var score_label: Label = %Score
+@onready var difficulty_label: Label = %Difficulty
+@onready var completed_label: Label = %Completed
+@onready var lost_label: Label = %Lost
+@onready var typos_label: Label = %Typo
+@onready var smash_label: Label = %Smash
+@onready var highlight: ColorRect = %Highlight
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	highlight.visible = is_current_player
 	if not data:
 		printerr("No data for score line")
 		return
