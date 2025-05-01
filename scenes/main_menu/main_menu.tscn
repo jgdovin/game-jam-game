@@ -332,3 +332,5 @@ offset_right = 686.5
 offset_bottom = 113.5
 theme_override_font_sizes/font_size = 37
 text = "X"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
