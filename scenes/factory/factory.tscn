@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=39 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_h56bk"]
 [ext_resource type="PackedScene" uid="uid://c3cre8gipu55t" path="res://scenes/conveyor/conveyor_belt.tscn" id="3_258vx"]
 [ext_resource type="Texture2D" uid="uid://c560r2l8m31ek" path="res://assets/Scaffold.png" id="3_ggcq3"]
+[ext_resource type="Texture2D" uid="uid://cjciwqo0fv8mf" path="res://scenes/factory/assets/Midground.png" id="3_h56bk"]
 [ext_resource type="Script" uid="uid://waov23iwse15" path="res://scenes/factory/press.gd" id="5_57o46"]
 [ext_resource type="PackedScene" uid="uid://bcxk1xwvkpmll" path="res://scenes/fire_pit/fire_pit.tscn" id="5_258vx"]
 [ext_resource type="PackedScene" uid="uid://dahf4dpbg2m7a" path="res://scenes/keyboard/keyboard.tscn" id="6_64w5n"]
@@ -246,6 +247,11 @@ wait_time = 1.5
 [node name="WordSpawnPoint" type="Node2D" parent="."]
 position = Vector2(1069, 354)
 
+[node name="Midground" type="Sprite2D" parent="."]
+position = Vector2(703, 327)
+scale = Vector2(4, 4)
+texture = ExtResource("3_h56bk")
+
 [node name="FirePit" parent="." instance=ExtResource("5_258vx")]
 position = Vector2(117, 552)
 
@@ -421,9 +427,9 @@ label_settings = SubResource("LabelSettings_pw8bt")
 [node name="DebugOverlay" parent="UI" instance=ExtResource("17_qrdmi")]
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("23_a47qo")]
-offset_left = 14.0
+offset_left = 47.0
 offset_top = 27.0
-offset_right = 14.0
+offset_right = 47.0
 offset_bottom = 27.0
 
 [node name="DifficultyIncreased" type="Label" parent="."]
