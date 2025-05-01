@@ -90,6 +90,7 @@ mouse_filter = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_javqj")
 fill_mode = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="SmashNode" type="Node2D" parent="."]
 
@@ -107,3 +108,4 @@ offset_right = 61.0
 offset_bottom = 99.0
 text = "Q"
 label_settings = SubResource("LabelSettings_cv4bp")
+metadata/_edit_use_anchors_ = true

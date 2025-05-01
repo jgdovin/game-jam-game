@@ -1,77 +1,37 @@
-[gd_scene load_steps=12 format=3 uid="uid://uxsufey75y6e"]
+[gd_scene load_steps=5 format=3 uid="uid://uxsufey75y6e"]
 
-[ext_resource type="Texture2D" uid="uid://bcs71u7728l5e" path="res://assets/hanglight-animated.png" id="1_wuk2r"]
-[ext_resource type="Script" uid="uid://vc8ovl0ee28u" path="res://scenes/factory/light.gd" id="2_p7oyc"]
+[ext_resource type="Texture2D" uid="uid://drk82jtyx5v34" path="res://scenes/light/assets/HangLightV2.png" id="1_jp7ha"]
+[ext_resource type="Script" uid="uid://cvtigtnhplp73" path="res://scenes/light/light.gd" id="2_p7oyc"]
+[ext_resource type="Texture2D" uid="uid://dd6s35k807kj8" path="res://scenes/light/assets/lamp-light2d-texture.png" id="2_wuk2r"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bn8px"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="Gradient" id="Gradient_wuk2r"]
+colors = PackedColorArray(1, 0.760784, 0.470588, 1, 1, 0.631373, 0.188235, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_57o46"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h56bk"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a47qo"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xsq5"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nhein"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_34aiy"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1tqrf"]
-atlas = ExtResource("1_wuk2r")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xkhht"]
-animations = [{
-"frames": [{
-"duration": 3.1,
-"texture": SubResource("AtlasTexture_bn8px")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_57o46")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_h56bk")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_a47qo")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_6xsq5")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_nhein")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_34aiy")
-}, {
-"duration": 1.4,
-"texture": SubResource("AtlasTexture_1tqrf")
-}, {
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_bn8px")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
-
-[node name="Light" type="AnimatedSprite2D"]
+[node name="Light" type="Sprite2D"]
 self_modulate = Color(0.75, 0.75, 0.75, 1)
 scale = Vector2(4, 4)
-sprite_frames = SubResource("SpriteFrames_xkhht")
+texture = ExtResource("1_jp7ha")
 script = ExtResource("2_p7oyc")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0.0463861, 12)
+scale = Vector2(0.831306, 1.12891)
+energy = 0.6
+shadow_enabled = true
+texture = ExtResource("2_wuk2r")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0.75, -5)
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+direction = Vector2(0.5, -1)
+initial_velocity_min = 30.0
+initial_velocity_max = 80.0
+scale_amount_min = 1.65
+scale_amount_max = 1.65
+color_ramp = SubResource("Gradient_wuk2r")

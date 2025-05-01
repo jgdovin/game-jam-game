@@ -22,6 +22,7 @@ font_size = 14
 font_color = Color(0.0941176, 0.152941, 0.180392, 1)
 
 [node name="Stats" type="Control"]
+light_mask = 2
 layout_mode = 3
 anchors_preset = 0
 offset_right = 203.0
@@ -29,6 +30,7 @@ offset_bottom = 252.0
 script = ExtResource("1_7xqiq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+light_mask = 2
 layout_mode = 1
 offset_left = 2.0
 offset_top = 36.0
@@ -37,22 +39,27 @@ offset_bottom = 299.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_wpmr0")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+light_mask = 2
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_constants/separation = 5
 
 [node name="Score" parent="PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_ylkts")]
+light_mask = 2
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="NextDifficulty" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/NextDifficulty"]
+light_mask = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "To Next Diff"
@@ -60,6 +67,7 @@ label_settings = SubResource("LabelSettings_i4dya")
 
 [node name="NextDifficultyValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/NextDifficulty"]
 unique_name_in_owner = true
+light_mask = 2
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "0"
@@ -67,9 +75,11 @@ label_settings = SubResource("LabelSettings_qrdmi")
 horizontal_alignment = 2
 
 [node name="CurrDifficulty" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CurrDifficulty"]
+light_mask = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Curr Diff Lvl"
@@ -77,6 +87,7 @@ label_settings = SubResource("LabelSettings_i4dya")
 
 [node name="CurrDifficultyValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CurrDifficulty"]
 unique_name_in_owner = true
+light_mask = 2
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "0"
@@ -84,9 +95,11 @@ label_settings = SubResource("LabelSettings_qrdmi")
 horizontal_alignment = 2
 
 [node name="CurrStreak" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CurrStreak"]
+light_mask = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Streak"
@@ -94,6 +107,7 @@ label_settings = SubResource("LabelSettings_i4dya")
 
 [node name="CurrStreakValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CurrStreak"]
 unique_name_in_owner = true
+light_mask = 2
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "0"
@@ -101,9 +115,11 @@ label_settings = SubResource("LabelSettings_qrdmi")
 horizontal_alignment = 2
 
 [node name="Typos" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Typos"]
+light_mask = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Typos"
@@ -111,6 +127,7 @@ label_settings = SubResource("LabelSettings_i4dya")
 
 [node name="TyposValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Typos"]
 unique_name_in_owner = true
+light_mask = 2
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "0"
@@ -118,9 +135,11 @@ label_settings = SubResource("LabelSettings_qrdmi")
 horizontal_alignment = 2
 
 [node name="Completed" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Completed"]
+light_mask = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Complete"
@@ -128,6 +147,7 @@ label_settings = SubResource("LabelSettings_i4dya")
 
 [node name="CompletedValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Completed"]
 unique_name_in_owner = true
+light_mask = 2
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "0"
@@ -135,9 +155,11 @@ label_settings = SubResource("LabelSettings_qrdmi")
 horizontal_alignment = 2
 
 [node name="Lost" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+light_mask = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Lost"]
+light_mask = 2
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Lost"
@@ -145,6 +167,7 @@ label_settings = SubResource("LabelSettings_i4dya")
 
 [node name="LostValue" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Lost"]
 unique_name_in_owner = true
+light_mask = 2
 custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 text = "0"
@@ -152,11 +175,13 @@ label_settings = SubResource("LabelSettings_qrdmi")
 horizontal_alignment = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
 position = Vector2(144, 144)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("4_7xqiq")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
+light_mask = 2
 layout_mode = 0
 offset_left = 44.0
 offset_top = 16.0
@@ -164,5 +189,6 @@ offset_right = 244.0
 offset_bottom = 48.0
 
 [node name="EmojiHolder" parent="CenterContainer" instance=ExtResource("3_pnet3")]
+light_mask = 2
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2

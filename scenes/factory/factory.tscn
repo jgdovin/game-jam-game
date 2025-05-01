@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bwfxu7wkeddsl"]
+[gd_scene load_steps=38 format=3 uid="uid://bwfxu7wkeddsl"]
 
 [ext_resource type="Script" uid="uid://bacv82hgvagp6" path="res://scenes/factory/factory.gd" id="1_vv6eg"]
 [ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_h56bk"]
@@ -219,15 +219,17 @@ _data = {
 &"disappear": SubResource("Animation_5kr2y")
 }
 
+[sub_resource type="Environment" id="Environment_57o46"]
+
 [node name="Factory" type="Node2D"]
 script = ExtResource("1_vv6eg")
 
 [node name="Background" type="TextureRect" parent="."]
 unique_name_in_owner = true
-offset_left = -823.0
-offset_top = -471.0
-offset_right = -275.0
-offset_bottom = -128.0
+offset_left = -327.0
+offset_top = -264.0
+offset_right = 104.0
+offset_bottom = 18.0
 scale = Vector2(4, 4)
 mouse_filter = 2
 texture = ExtResource("2_h56bk")
@@ -355,17 +357,11 @@ stream = ExtResource("8_a47qo")
 [node name="Lights" type="Node2D" parent="."]
 z_index = 3
 
-[node name="Light" parent="Lights" instance=ExtResource("9_6xsq5")]
-position = Vector2(69, 64)
-
 [node name="Light5" parent="Lights" instance=ExtResource("9_6xsq5")]
 position = Vector2(389, 64)
 
 [node name="Light6" parent="Lights" instance=ExtResource("9_6xsq5")]
 position = Vector2(773, 64)
-
-[node name="Light7" parent="Lights" instance=ExtResource("9_6xsq5")]
-position = Vector2(1093, 64)
 
 [node name="Health" parent="." instance=ExtResource("10_vv6eg")]
 offset_left = 238.0
@@ -425,6 +421,10 @@ label_settings = SubResource("LabelSettings_pw8bt")
 [node name="DebugOverlay" parent="UI" instance=ExtResource("17_qrdmi")]
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("23_a47qo")]
+offset_left = 14.0
+offset_top = 27.0
+offset_right = 14.0
+offset_bottom = 27.0
 
 [node name="DifficultyIncreased" type="Label" parent="."]
 visible = false
@@ -441,3 +441,9 @@ script = ExtResource("15_i4dya")
 libraries = {
 &"": SubResource("AnimationLibrary_pw8bt")
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_57o46")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.868985, 0.868985, 0.868985, 1)
