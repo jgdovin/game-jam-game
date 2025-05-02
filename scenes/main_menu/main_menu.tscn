@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cljd1s7ui0fx0"]
+[gd_scene load_steps=19 format=3 uid="uid://cljd1s7ui0fx0"]
 
 [ext_resource type="Script" uid="uid://caxsoxs3kb8b4" path="res://scenes/main_menu/main_menu.gd" id="1_l48gv"]
 [ext_resource type="Texture2D" uid="uid://dhka8uylfx8a4" path="res://assets/BackgroundV2.png" id="2_x2yjq"]
@@ -88,6 +88,8 @@ texture_margin_left = 20.0
 texture_margin_top = 20.0
 texture_margin_right = 20.0
 texture_margin_bottom = 20.0
+
+[sub_resource type="Environment" id="Environment_x2yjq"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -334,3 +336,8 @@ theme_override_font_sizes/font_size = 37
 text = "X"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x2yjq")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.564962, 0.564962, 0.564962, 1)

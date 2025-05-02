@@ -360,7 +360,6 @@ shape = SubResource("RectangleShape2D_5pcoe")
 unique_name_in_owner = true
 
 [node name="Press" type="Node2D" parent="."]
-visible = false
 z_index = 2
 position = Vector2(1054, -226)
 script = ExtResource("5_57o46")
@@ -523,12 +522,14 @@ environment = SubResource("Environment_57o46")
 color = Color(0.868985, 0.868985, 0.868985, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1056, 227)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_lkc4f")
 autoplay = "default"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1056, 205)
 scale = Vector2(3, 3)
 texture = ExtResource("26_6xsq5")

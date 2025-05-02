@@ -2,6 +2,7 @@ extends Node2D
 var alphabet: Array[String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var label: Label = %Label
+@onready var rotator: Node2D = $Rotator
 
 var current_letter: String = ""
 var current_progress: float = 0.0
@@ -37,6 +38,7 @@ func _on_typo_mode_ended() -> void:
 	SoundManager.play_game_music()
 
 func _process(delta: float) -> void:
+	rotator.rotation += 0.1
 	if current_progress < 0.0:
 		return
 	current_progress -= steps_decrease * delta

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhvimsqkbu22t"]
+[gd_scene load_steps=9 format=3 uid="uid://bhvimsqkbu22t"]
 
 [ext_resource type="Script" uid="uid://cy2m17abbbi46" path="res://scenes/typo_mode/typo_mode.gd" id="1_javqj"]
 [ext_resource type="Texture2D" uid="uid://bsaghi2ypmaf0" path="res://scenes/keyboard/assets/blankkey_white.png" id="2_javqj"]
+[ext_resource type="Texture2D" uid="uid://dd6s35k807kj8" path="res://scenes/light/assets/lamp-light2d-texture.png" id="3_cv4bp"]
 
 [sub_resource type="Animation" id="Animation_7sc4i"]
 length = 0.001
@@ -109,3 +110,37 @@ offset_bottom = 99.0
 text = "Q"
 label_settings = SubResource("LabelSettings_cv4bp")
 metadata/_edit_use_anchors_ = true
+
+[node name="Rotator" type="Node2D" parent="."]
+visible = false
+
+[node name="PointLight2D" type="PointLight2D" parent="Rotator"]
+position = Vector2(-1.52588e-05, -3.8147e-06)
+scale = Vector2(4.8219, 6.5481)
+color = Color(1, 0, 0, 1)
+shadow_enabled = true
+texture = ExtResource("3_cv4bp")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Rotator"]
+position = Vector2(-1.52588e-05, -3.8147e-06)
+rotation = 1.5708
+scale = Vector2(4.8219, 6.5481)
+color = Color(1, 0, 0, 1)
+shadow_enabled = true
+texture = ExtResource("3_cv4bp")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Rotator"]
+position = Vector2(-1.52588e-05, -3.8147e-06)
+rotation = 3.14159
+scale = Vector2(4.8219, 6.5481)
+color = Color(1, 0, 0, 1)
+shadow_enabled = true
+texture = ExtResource("3_cv4bp")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Rotator"]
+position = Vector2(-1.52588e-05, -3.8147e-06)
+rotation = 4.71239
+scale = Vector2(4.8219, 6.5481)
+color = Color(1, 0, 0, 1)
+shadow_enabled = true
+texture = ExtResource("3_cv4bp")
